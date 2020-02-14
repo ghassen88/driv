@@ -1,0 +1,70 @@
+<div class="conatiner">
+    <nav class="navbar header">
+        <div class="header-title">
+            <div class="header-content">
+                <i id="group-icon"></i>
+                <span translate>{{groupName}}</span>
+            </div>
+        </div>
+        <div class="header-title">
+            <div class="header-content">
+                <i class="driver-count-icon"></i>
+                <div class="number"><span>{{driverCount$ | async}}</span></div> <span translate>DRIVERS</span>
+            </div>
+        </div>
+        <div class="header-title">
+            <div class="header-content last">
+                <i class="driver-count-update-icon"></i>
+
+                <div class="number"><span
+                        *ngIf="dailyUpdate > 0">+</span><span>{{dailyUpdate}}</span></div><span translate>&nbsp;Today</span>
+            </div>
+        </div>
+
+            <div class="action-button">
+                <i class="messaging-alternate-icon"></i>
+                <span> Send message</span>
+            </div>
+            
+            <!-- <i class="fa fa-bell fa-2x"></i> -->
+            <!-- <i class="fa fa-ellipsis-v fa-2x" (clickOutside)="onClickedOutside($event)" [exclude]="'drivata-user-nav'"></i> -->
+    </nav>
+</div>
+<div class="module-content">
+
+    <drivata-dashboard-stat [groupStat]="groupStat$ | async"></drivata-dashboard-stat>
+    <div class="summary-selector">
+        <span class="selector-title" (click)="Show(MembresSummary)"
+            [ngClass]="{'selector-title-active': selectedSummary == MembresSummary}" translate>Members</span>
+        <span class="selector-title" (click)="Show(CategorySummary)"
+            [ngClass]="{'selector-title-active': selectedSummary == CategorySummary}" translate>Categories</span>
+        <span class="selector-title" (click)="Show(PerformanceSummary)"
+            [ngClass]="{'selector-title-active': selectedSummary == PerformanceSummary}" translate>Performances</span>
+        <span class="selector-title" (click)="Show(StatisticSummary)"
+            [ngClass]="{'selector-title-active': selectedSummary == StatisticSummary}" translate>Statistics</span>
+        <span class="selector-title" (click)="Show(EconomicsSummary)"
+            [ngClass]="{'selector-title-active': selectedSummary == EconomicsSummary}" translate>Economies</span>
+    </div>
+    <div class="summary">
+        <ng-container *ngTemplateOutlet="selectedSummary ? selectedSummary: MembresSummary"></ng-container>
+    </div>
+
+    <ng-template #MembresSummary>
+        <drivata-drivers-list *ngIf="drivers$ != null" [drivers]="drivers$ | async"
+            [driverCount]="driverCount$ | async">
+        </drivata-drivers-list>
+    </ng-template>
+    <ng-template #CategorySummary>
+        <drivata-drivers-by-category [summaries]="groupSummaries$ | async"></drivata-drivers-by-category>
+    </ng-template>
+    <ng-template #PerformanceSummary>
+        <drivata-performance-summary [summaries]="groupSummaries$ | async"></drivata-performance-summary>
+    </ng-template>
+    <ng-template #StatisticSummary>
+        <drivata-statistics-summary [summaries]="groupSummaries$ | async"></drivata-statistics-summary>
+    </ng-template>
+    <ng-template #EconomicsSummary>
+        <drivata-savings-summary [summaries]="groupSummaries$ | async"></drivata-savings-summary>
+
+    </ng-template>
+</div>

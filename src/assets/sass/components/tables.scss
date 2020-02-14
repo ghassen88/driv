@@ -1,0 +1,21 @@
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+.material{
+    .datatable-header{
+        .datatable-header-cell{
+           padding: 0.9rem 0rem !important;
+        }
+        .datatable-header-cell-label{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+    }
+    .datatable-body-row{
+        cursor: pointer;
+        
+    }
+    
+}
+
+

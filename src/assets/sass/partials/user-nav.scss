@@ -1,0 +1,39 @@
+.user-nav{
+    position: fixed;
+    margin-top: 65px;
+    margin-right: 20px;
+    width: 300px;
+    height: 600px;
+    right: 0px;
+    color: #f0ffff;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 500;
+
+    background-color: #172957;
+    border-radius: 10px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    text-align: center;
+    .user-info{
+        z-index: 2;
+        text-align: center;
+        margin: auto;
+        margin-top: 5%;
+        }
+    .line{
+        top: 10%;
+        margin: 0px 35px;
+        width: 75%;
+        z-index: 1;
+        border-bottom: 1px solid #f0ffff;
+    }
+    .actions{
+        top: 10%;
+        margin: 0px 35px;
+        width: 75%;
+        z-index: 1;
+        border-top: 1px solid #f0ffff;
+    }
+}

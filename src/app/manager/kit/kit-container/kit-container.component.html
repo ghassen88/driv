@@ -1,0 +1,198 @@
+<!--  -->
+<div class="kit">
+  <div class="row">
+    <div class="stat col-xl-3">
+      <drivata-line-chart
+      [data]="data"
+      [view]="view"
+      [color]="colorScheme"
+
+      [schemeType]="schemeType"
+      >
+      </drivata-line-chart>
+    </div>
+    <div class="col-xl-3">
+      
+      <drivata-donut-chart
+      [dataName]="dataName1"
+      [view]="view"
+      [color]="colorScheme"
+      [data]="tauxDeSecurite"
+      [gradient]="gradient"
+      (selectData)="select($event)">
+      </drivata-donut-chart>
+    </div>
+    <div class="stat col-xl-3">
+      <drivata-donut-chart
+      [dataName]="dataName2"
+      [view]="view"
+      [color]="colorScheme"
+      [data]="tauxDeSecurite"
+      [gradient]="gradient"
+      (selectData)="select($event)">
+      </drivata-donut-chart>
+    </div>
+    <div class="stat col-xl-4">
+        <drivata-pie-chart
+        [data]="pieChartData"
+        [dataName]="'Engagement challenge'"
+        [view]="pieCharView"
+        [colors]="colorScheme"
+        [pieTooltipText]="pieTooltipText"
+        [legendWidth]="0.35"
+        [chartWidth]="0.65"
+        [pieLegend]="pieLegend"
+        (dbclick)="DoubleClick($event)"
+        (select)="Select($event)"
+        (activate)="Activate($event)"
+        (deactivate)="Deactivate($event)">
+        </drivata-pie-chart>
+      </div>
+
+     <div class="stat col-xl-3">
+      <drivata-donut-chart
+      [dataName]="dataName3"
+      [view]="view"
+      [color]="colorScheme"
+      [data]="tauxDeSecurite"
+      [gradient]="gradient"
+      (selectData)="select($event)">
+      </drivata-donut-chart>
+      
+    </div>
+    <div class="stat-grid col-xl-3">
+      <div class="row">
+        <drivata-rating-circle
+        [view]="RatingView"
+        [scheme]="'#F5DB3A'"
+        [results]="ratingExample"
+        [animations]="animations"
+        [tooltipDisabled]="tooltipDisabled"
+        [limitDistance]="limitOffset"
+        [logo]="'leaf'"
+        class="col-xl-4">
+        </drivata-rating-circle>
+        <drivata-rating-circle
+          [view]="RatingView"
+          [scheme]="'#5AEA76'"
+          [results]="ratingExample"
+          [animations]="animations"
+          [tooltipDisabled]="tooltipDisabled"
+          [logo]="'shield'"
+          class="col-xl-4">
+        </drivata-rating-circle>
+        <drivata-rating-circle
+          [view]="RatingView"
+          [scheme]="'#F53E30'"
+          [results]="ratingExample"
+          [animations]="animations"
+          [tooltipDisabled]="tooltipDisabled"
+          [logo]="'phone'"
+          class="col-xl-4">
+        </drivata-rating-circle>
+      </div>
+    </div>
+    <div class="map-info col-xl-3 ">
+      <!-- <drivata-trajectoires-map [trajectoires]="trajects"  [mapPosition]="position"  (trajectoire)="trajectoireUpdate($event)"></drivata-trajectoires-map> -->
+    </div>
+    <div *ngIf="trajectoireSelectionne" class="col-xl-3 traject-info">
+      <div class="card-body">
+        <p><span>ville de départ: {{trajectoireSelectionne.departVille}}</span></p>
+        <p><span>Adresse de départ: {{trajectoireSelectionne.departAddress}}</span></p>
+        <p><span>ville d'arrivée: {{trajectoireSelectionne.arriveeVille}}</span></p>
+        <p><span>Adresse d'arrivée: {{trajectoireSelectionne.arriveeAddress}}</span></p>
+      </div>
+    </div>
+    
+     <div class="stat col-xl-3">
+        <drivata-line-chart
+        [data]="data"
+        [view]="view"
+        [color]="colorScheme"
+        [xTickValue]="xTickValue"
+        [yTickValue]="yTickValue"
+        [schemeType]="schemeType">
+
+        </drivata-line-chart>
+    </div>
+    <div class="stat col-xl-3">
+      <drivata-donut-chart
+      [dataName]="dataName1"
+      [view]="view"
+      [color]="colorScheme"
+      [data]="tauxDeSecurite"
+      [gradient]="gradient"
+      (selectData)="select($event)">
+    </drivata-donut-chart>
+
+    </div>
+    <div class="stat col-xl-3">
+      <drivata-donut-chart
+      [dataName]="dataName2"
+      [view]="view"
+      [color]="colorScheme"
+      [data]="tauxDeSecurite"
+      [gradient]="gradient"
+      (selectData)="select($event)">
+      </drivata-donut-chart>
+    </div>
+    <div class="stat col-xl-3">
+      <drivata-donut-chart
+      [dataName]="dataName3"
+      [view]="view"
+      [color]="colorScheme"
+      [data]="tauxDeSecurite"
+      [gradient]="gradient"
+      (selectData)="select($event)">
+      </drivata-donut-chart>
+      
+    </div>
+    <div class="stat-grid col-xl-3">
+      <div class="row">
+          <drivata-rating-circle
+          [view]="RatingView"
+          [scheme]="'#F5DB3A'"
+          [results]="ratingExample"
+          [animations]="animations"
+          [tooltipDisabled]="tooltipDisabled"
+          [limitDistance]="limitOffset"
+          [logo]="'leaf'"
+          class="col-xl-4">
+        </drivata-rating-circle>
+        <drivata-rating-circle
+          [view]="RatingView"
+          [scheme]="'#5AEA76'"
+          [results]="ratingExample"
+          [animations]="animations"
+          [tooltipDisabled]="tooltipDisabled"
+          [logo]="'shield'"
+          class="col-xl-4">
+        </drivata-rating-circle>
+        <drivata-rating-circle
+          [view]="RatingView"
+          [scheme]="'#F53E30'"
+          [results]="ratingExample"
+          [animations]="animations"
+          [tooltipDisabled]="tooltipDisabled"
+          [logo]="'phone'"
+          class="col-xl-4">
+        </drivata-rating-circle>
+      </div>
+    
+      
+    </div>
+    
+    <!-- <div class="map-info col-xl-3 ">
+      <drivata-trajectoires-map [trajectoires]="trajects"  [mapPosition]="position"  (trajectoire)="trajectoireUpdate($event)"></drivata-trajectoires-map>
+    </div>
+    <div *ngIf="trajectoireSelectionne" class="col-xl-3 traject-info">
+      <div class="card-body">
+        <p><span>ville de départ: {{trajectoireSelectionne.departVille}}</span></p>
+        <p><span>Adresse de départ: {{trajectoireSelectionne.departAddress}}</span></p>
+        <p><span>ville d'arrivée: {{trajectoireSelectionne.arriveeVille}}</span></p>
+        <p><span>Adresse d'arrivée: {{trajectoireSelectionne.arriveeAddress}}</span></p>
+      </div>
+    </div>  -->
+  </div>
+</div>
+

@@ -1,0 +1,123 @@
+<div class="title" [ngClass]="{'showedSubSideNav': selectedTab == 'Groups'}">
+    <div class="logo">
+        <img src="assets/img/svg/icons/drivata_white.svg" />
+    </div>
+    <div class="TeamHolder" [ngClass]="{'showedTeamName': selectedTab == 'Groups'}">
+        <span translate>My Team</span>
+        <span class="teamName">{{teamName | titlecase }}</span>
+    </div>
+</div>
+<div class="side-nav-menu" [ngClass]="{'SubSideNav': selectedTab == 'Groups'}">
+
+    <!-- <a href="#"><img src="https://drivata.eu/design/svg/logo-drivata-thomas.svg" class="logo" /></a> -->
+    <!-- <div class="side-scroll"> -->
+    <!-- <h3 class="TeamName">{{teamName | titlecase }}</h3> -->
+    <!-- <div class="line"></div> -->
+
+    <div class="side-bar-item" (click)="Show('Groups')" [ngClass]="{'active': selectedTab == 'Groups'}">
+        <a aria-current="false" class="sidebar-link">
+            <i class="img group-icon"></i>
+            <span class="hide-menu" translate>Groups</span></a>
+
+        <!-- <ul [ngClass]="{'showSub': showTeams}">
+            <li *ngFor="let group of groups"><a class="sub-menu" [routerLink]="['dashboard',group.name]"
+                    routerLinkActive="active">{{group.name}}</a></li>
+        </ul> -->
+    </div>
+    <div class="side-bar-item" (click)="Show('Vehicles')" [ngClass]="{'active': selectedTab == 'Vehicles'}">
+        <a aria-current="false" class="sidebar-link">
+            <i class="img vehicle-small-icon"></i>
+            <span class="hide-menu" translate>Vehicle </span> </a>
+
+        <!-- <ul [ngClass]="{'showSub': showCarte}">
+            <li><a [routerLink]="['driver',firstDriver.driverId]" class="sub-menu" translate
+                    routerLinkActive="active">Trips</a></li>
+        </ul> -->
+    </div>
+    <div class="side-bar-item" (click)="Show('Challenges')" [ngClass]="{'active': selectedTab == 'Challenges'}">
+        <a aria-current="false" class="sidebar-link">
+            <i class="img challenge-icon"></i>
+            <span class="hide-menu" translate>Challenge </span> </a>
+
+        <!-- <ul [ngClass]="{'showSub': showAdministration}">
+            <li><a class="sub-menu" translate routerLinkActive="active">Managers</a></li>
+            <li><a class="sub-menu" [routerLink]="'groups'" translate routerLinkActive="active">Groups</a></li>
+            <li><a class="sub-menu" translate routerLinkActive="active">Drivers</a></li>
+
+        </ul> -->
+    </div>
+    <div class="side-bar-item" (click)="Show('Messages')" [ngClass]="{'active': selectedTab == 'Messages'}">
+        <a aria-current="false" class="sidebar-link">
+            <i class="img message-icon"></i>
+            <span class="hide-menu" translate>Message</span>
+        </a>
+    </div>
+    <div class="side-bar-item" (click)="Show('Invitations')" [ngClass]="{'active': selectedTab == 'Invitations'}">
+        <a aria-current="false" class="sidebar-link">
+            <i class="img invitation-icon"></i>
+            <span class="hide-menu" translate>Invitations </span></a>
+
+        <!-- <ul [ngClass]="{'showSub': showChallenge}">
+            <li><a class="sub-menu" translate routerLinkActive="active">Organiser un challenge</a></li>
+            <li><a class="sub-menu" (click)="UpdateHeader('Suivi des challenges')" translate>Suivi des challenges</a>
+            </li>
+        </ul> -->
+    </div>
+</div>
+<div class="sub-side-nav-menu" [ngClass]="{'showed-sub-nav': selectedTab == 'Groups'}">
+    <div class="defaultGroupsNav" *ngIf="groups.length != 0">
+        <span class="GroupTypes" translate>Default groups </span>
+        <div><a [routerLink]="['dashboard',groups[0].name]" routerLinkActive="active-link"><i
+                    [ngClass]="{'selected-excellent-face-icon': selectedGroup == groups[0],'excellent-face-icon':selectedGroup != groups[0]}"></i><span
+                    translate>{{groups[0].name}}</span></a></div>
+        <div><a [routerLink]="['dashboard',groups[1].name]" routerLinkActive="active-link"><i class="good-face-icon"
+                    [ngClass]="{'selected-good-face-icon': selectedGroup == groups[1]}"></i><span
+                    translate>{{groups[1].name}}</span></a></div>
+        <div><a [routerLink]="['dashboard',groups[2].name]" routerLinkActive="active-link"><i class="feeble-face-icon"
+                    [ngClass]="{'selected-feeble-face-icon': selectedGroup == groups[2]}"></i><span
+                    translate>{{groups[2].name}}</span></a></div>
+    </div>
+    <div *ngIf="isPremium" class="customGroupsnav">
+        <span class="GroupTypes"><i (click)="showCustomGroups = !showCustomGroups" class="right-opener-cheveron-icon"
+                [ngClass]="{'down-opener-cheveron-icon': showCustomGroups}"></i>
+            <i (click)="showCustomGroups = !showCustomGroups" class="oval-groups-icon"></i>
+            <span (click)="showCustomGroups = !showCustomGroups" class="GroupTypes" translate> My Groups</span>
+            <i *ngIf="customGroups.length != 0;" class="add-group-icon"></i>
+        </span>
+        <div *ngIf="showCustomGroups">
+            <div *ngIf="customGroups.length != 0;else EmptyCustomGroups">
+                <div *ngFor="let group of customGroups" class="customGroup"><a [routerLink]="['dashboard',group.name]"
+                        routerLinkActive="active-link"><span>{{group.name}}</span></a>
+                    <div ngbDropdown placement="bottom-right" class="d-inline-block" [autoClose]="'outside'">
+                        <button ngbDropdownToggle class="btn btn-standard" [id]="group.name + '-actions'"><i
+                                class="elipsiss-icon"></i></button>
+                        <div ngbDropdownMenu class="dropdown-menu" >
+                            <button class="dropdown-item" translate>
+                                <i class="checked-box"></i>
+                                <span translate>Delete</span>
+                            </button>
+                            <button class="dropdown-item" translate>
+                                <i class="checked-box"></i>
+                                <span translate>Edit</span>
+                            </button>
+                            <button class="dropdown-item" translate>
+                                <i class="checked-box"></i>
+                                <span translate>Send message</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #EmptyCustomGroups>
+                <div class="emptyCustomGroups">
+                    <i class="img grey-group-icon"></i>
+                    <span class="hide-menu" translate>You d'ont have any DRIVATA groups yet</span>
+                    <div class="create-group-button">
+                        <i class="add-group-icon"></i>
+                        <span translate>Let's create one</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

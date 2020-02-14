@@ -1,0 +1,38 @@
+<div class="trip-information" (resized)="onResized($event)">
+    <div class="trip-contexts">
+        <p class="trip-date" translate> CONTEXTE ROUTIER</p>
+        <p class="trip-condition" translate>{{selectedTrip.isDayTime | isDay}} <span translate>trip on a </span><span
+                translate>{{selectedTrip.weather | key:weathers}} </span><span translate> day.</span></p>
+    </div>
+    <div class="line"></div>
+    <drivata-donut-chart [view]="view" [color]="colorScheme" [data]="data" [gradient]="true" [showValue]="false"
+        >
+    </drivata-donut-chart>
+    <div class="trip-scores">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 trip-score">
+                <i class="trip-alternate-icon"></i>
+                <p translate> Distance</p>
+                <p>{{selectedTrip.distance | distance}}</p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 trip-score">
+                <i class="trip-speed-icon"></i>
+                <p translate> Mean speed</p>
+                <p>{{selectedTrip.meanSpeed}}</p>
+            </div>
+            <div class="dashedline">
+                
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 trip-score">
+                <i class="trip-duration-icon"></i>
+                <p translate> Duration</p>
+                <p>{{selectedTrip.tripDuration | time}}</p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 trip-score">
+                <i class="trip-idle-icon"></i>
+                <p translate> Idle time</p>
+                <p>{{selectedTrip.idleDuration | time}}</p>
+            </div>
+        </div>
+    </div>
+</div>

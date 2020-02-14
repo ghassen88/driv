@@ -1,0 +1,153 @@
+@import "../base/mixin.scss";
+.stat-summary {
+  .col-lm-12 {
+    @media (max-width: 1400px) {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+  }
+  .col-xl-4 {
+    @media (min-width: 1400px) {
+      flex: 0 0 33.33% !important;
+      max-width: 33.33% !important;
+    }
+  }
+  .col-lm-6 {
+    @media (max-width: 1400px) and (min-width: 900px) {
+      flex: 0 0 50% !important;
+      max-width: 50% !important;
+    }
+  }
+  font-family: "Roboto Bold";
+  font-size: 13.2px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.6;
+  letter-spacing: normal;
+  width: 97%;
+  .stat-container {
+    height: 116px;
+    background-color: #fff;
+    box-shadow: 0 6px 12px 0 rgba(16, 27, 79, 0.21);
+    border-radius: 10px;
+    margin: 16px 0px;
+    padding: 16px 20px;
+    .top-left {
+      position: absolute;
+      right: 93px;
+      top: 35px;
+    }
+
+    .number {
+      font-size: 25.2px;
+    }
+
+    &.focused {
+      background-color: #172957 !important;
+      color: #fff !important;
+    }
+  }
+  .stat-scores-container {
+    background-color: #fff;
+    box-shadow: 0 6px 12px 0 rgba(16, 27, 79, 0.21);
+    border-radius: 10px;
+    margin: 16px 0px;
+    // padding-left: 1%;
+    // padding-top: 1%;
+    line-height: normal;
+    .stat-chart {
+      height: 100%;
+    }
+    .stat-score-container{
+        height: 234px;
+        width: 296px;
+
+    }
+  }
+  .line {
+    margin-top: -5px;
+    width: 95%;
+    z-index: 1;
+    border-bottom: 1px solid #656666;
+  }
+  .vertical-line {
+    height: 60%;
+    margin-top: 10%;
+    border-left: 0.8px solid #656666;
+  }
+  .score-icon {
+    position: relative;
+    display: inline-block;
+    width: calc((100% * 0.9) * 0.5);
+    width: 49%;
+    height: 93.8%;
+    // &::after {
+    //   content: "";
+    //   height: 44%; //You can change this if you want smaller/bigger borders
+    //   width: 1px;
+    //   margin-top: 25%;
+    //   @media (max-width: 1401px) {
+    //     margin-left: 7%;
+    //   }
+    //   position: absolute;
+    //   left: 0;
+    //   top: 0;
+    //   // If you want to set a smaller height and center it, change this value
+    //   background-color: #000000; // The color of your border
+    // }
+  }
+}
+// .summary-selector{
+//     width: 97%;
+//     height: 57px;
+//     border-radius: 6px;
+//     background-color: #ffffff;
+//     box-shadow: 0 6px 12px 0 rgba(16, 27, 79, 0.21);
+//     display: inline-flex;
+//     padding: 15px;
+// }
+// .summary{
+//     width: 97%;
+//     height: auto;
+//     background-color: #ffffff;
+//     box-shadow: 0 6px 12px 0 rgba(16, 27, 79, 0.21);
+//     border-radius: 6px;
+//     margin-top: 15px;
+//     .summary-title{
+//         //padding: 15px;
+//         font-stretch: normal;
+//         font-style: normal;
+//         line-height: normal;
+//         letter-spacing: normal;
+//         font-family: 'Roboto Bold';
+//         @include font-size-map(20,18,16,14,12);
+//         font-weight: 500;
+//         color: var(--dark-slate-blue);
+//         float: left;
+//         //width: 40%;
+//         .summary-subtitle{
+//             margin-left: 5px;
+//             font-size: 14px;
+//             font-weight: 500;
+//             font-stretch: normal;
+//             font-style: normal;
+//             line-height: normal;
+//             letter-spacing: normal;
+//             color: #4e515a;
+
+//         }
+//     }
+//     .membreSummary{
+//         width: 100%;
+//         height: auto;
+//         display: block;
+//         .search{
+//             //width: 40%;
+//             float: right;
+//         }
+//     }
+//     .categorySummary{
+//         height: 385px;
+//     }
+// }

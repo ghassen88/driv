@@ -1,0 +1,637 @@
+%side-icon {
+  display: block;
+  position: inherit;
+  content: " ";
+  width: 30px;
+  height: 30px;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+%internal-icon {
+  display: block;
+  position: inherit;
+  content: " ";
+  width: 27px;
+  height: 26px;
+  background-size: 25px 29px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+%left-side-icon {
+  display: block;
+  position: inherit;
+  content: " ";
+  width: 49px;
+  height: 32px;
+  background-size: 31px 44px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+%right-side-icon {
+  display: -webkit-inline-box;
+  position: relative;
+  content: " ";
+  width: 67px;
+  height: 60px;
+  top: 21%;
+  left: 30%;
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.side-nav {
+  .side-bar-item {
+    color: white;
+    // -webkit-transition: all 1s ease;
+    // -moz-transition: all 1s ease;
+    // -o-transition: all 1s ease;
+    // transition: all 1s ease;
+    //position: fixed;
+    // text-decoration: none;
+    // display: flex;
+    // color: #f0ffff;
+    // margin-top: 11px;
+    // // margin-left: 13px;
+    // align-content: center;
+    // align-items: center;
+    // margin-right: 5px;
+    // margin-bottom: 30px;
+    // margin-left: 10px;
+    // height: 45px;
+    //justify-content: flex-start;
+
+    //width: 45px;
+    //padding: 5px 5px 5px 5px;
+    // a{
+    //     margin: 4px 4px;
+    // }
+    // &:hover{
+    //     //margin: 6px 6px;
+    //     border-radius: 10px;
+    //     //border: solid 1px;
+    //     //width: 150px;
+    //     //padding-left: 5px;
+
+    //     background-image: linear-gradient(39deg,#434343,#000000)
+    // }
+
+    span {
+      //margin-left: 10px;
+      margin-top: 1px;
+    }
+  }
+}
+i {
+  border-radius: 10px;
+  transition: all linear 0.4s;
+  &.tableau-de-bord-icon {
+    &:after {
+      @extend %side-icon;
+      background-image: url("/assets/img/svg/icons/dashboard-house.svg");
+    }
+  }
+
+  &.group-icon {
+    &:after {
+      @extend %internal-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/group.svg");
+    }
+  }
+  &.grey-group-icon {
+    &:after {
+      @extend %internal-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/grey-group.svg");
+    }
+  }
+  &.vehicle-small-icon {
+    &:after {
+      @extend %internal-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/vehicle-small.svg");
+    }
+  }
+  &.challenge-icon {
+    &:after {
+      @extend %internal-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/challenge.svg");
+    }
+  }
+  &.message-icon {
+    &:after {
+      @extend %internal-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/message.svg");
+    }
+  }
+  &.invitation-icon {
+    &:after {
+      @extend %internal-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/invitation.svg");
+    }
+  }
+  &.excellent-face-icon {
+    &:after {
+      @extend %side-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/excellent-face.svg");
+    }
+  }
+  &.selected-excellent-face-icon {
+    &:after {
+      @extend %side-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/selected-excellent-face.svg");
+    }
+  }
+  &.good-face-icon {
+    &:after {
+      @extend %side-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/good-face.svg");
+    }
+  }
+  &.driver-count-icon {
+    &:after {
+      @extend %side-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/driver-count.svg");
+    }
+  }
+  &.driver-count-update-icon {
+    &:after {
+      @extend %side-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/driver-count-update.svg");
+    }
+  }
+  &.selected-good-face-icon {
+    &:after {
+      @extend %side-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/selected-good-face.svg");
+    }
+  }
+  &.feeble-face-icon {
+    &:after {
+      @extend %side-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/feeble-face.svg");
+    }
+  }
+  &.selected-feeble-face-icon {
+    &:after {
+      @extend %side-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/selected-feeble-face.svg");
+    }
+  }
+  &.oval-groups-icon {
+    &:after {
+      @extend %left-side-icon;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/oval-groups-icon.svg");
+    }
+  }
+  &.right-opener-cheveron-icon {
+    &:after {
+      display: block;
+      position: inherit;
+      content: " ";
+      width: 27px;
+      height: 28px;
+      background-size: 11px 13px;
+      background-repeat: no-repeat;
+      background-position: right;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/right-chevron.svg");
+    }
+  }
+  &.down-opener-cheveron-icon {
+    &:after {
+      display: block;
+      position: inherit;
+      content: " ";
+      width: 27px;
+      height: 28px;
+      background-size: 11px 13px;
+      background-repeat: no-repeat;
+      background-position: right;
+      margin: auto;
+      background-image: url("/assets/img/svg/icons/down-chevron.svg");
+    }
+  }
+  &.oval-icon {
+    &:after {
+      display: block;
+      position: inherit;
+      content: " ";
+      width: 15px;
+      height: 15px;
+      background-size: 10px 10px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/oval.svg");
+    }
+  }
+  &.previous-icon {
+    &:after {
+      width: 17px;
+      height: 10px;
+      //top: 21%;
+      //left: 30%;
+      background-size: 10px 10px;
+      display: -webkit-inline-box;
+      position: relative;
+      background-repeat: no-repeat;
+      content: " ";
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/prev-chevron.svg");
+    }
+  }
+  &.next-icon {
+    &:after {
+      width: 17px;
+      height: 10px;
+      //top: 21%;
+      //left: 30%;
+      background-size: 10px 10px;
+      display: -webkit-inline-box;
+      position: relative;
+      background-repeat: no-repeat;
+      content: " ";
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/next-chevron.svg");
+    }
+  }
+  &.first-icon {
+    &:after {
+      width: 17px;
+      height: 10px;
+      //top: 21%;
+      //left: 30%;
+      background-size: 20px 20px;
+      display: -webkit-inline-box;
+      position: relative;
+      background-repeat: no-repeat;
+      content: " ";
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/first-chevron.svg");
+    }
+  }
+  &.tooltip-icon {
+    width: 15px;
+    height: 15px;
+    background-size: 20px 20px;
+    display: -webkit-inline-box;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    content: " ";
+    background-image: url("/assets/img/svg/icons/tooltip.svg");
+  }
+  &.last-icon {
+    &:after {
+      width: 17px;
+      height: 10px;
+      //top: 21%;
+      //left: 30%;
+      background-size: 20px 20px;
+      display: -webkit-inline-box;
+      position: relative;
+      background-repeat: no-repeat;
+      content: " ";
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/last-chevron.svg");
+    }
+  }
+  &.elipsiss-icon {
+    &:after {
+      display: block;
+      position: inherit;
+      content: " ";
+      width: 25px;
+      height: 25px;
+      background-size: 15px 15px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/elipssis-three-dots.svg");
+    }
+  }
+  &.ranking-icon {
+    &:after {
+      @extend %internal-icon;
+      background-image: url("/assets/img/svg/icons/ranking.svg");
+    }
+  }
+  &.driver-icon {
+    &:after {
+      @extend %internal-icon;
+      background-image: url("/assets/img/svg/icons/driver.svg");
+    }
+  }
+  &.marker-icon {
+    &:after {
+      display: block;
+      position: inherit;
+      content: " ";
+      width: 15px;
+      height: 15px;
+      background-size: 10px 10px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/marker-point.svg");
+    }
+  }
+  &.trip-line-icon {
+    &:after {
+      display: block;
+      position: inherit;
+      content: " ";
+      width: 25px;
+      height: 84px;
+      background-size: 128px 83px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/method-draw.svg");
+    }
+  }
+  &.messaging-icon {
+    &:after {
+      @extend %side-icon;
+      background-image: url("/assets/img/svg/icons/messaging.svg");
+    }
+  }
+  &.messaging-alternate-icon {
+    &:after {
+      @extend %side-icon;
+      width: 43px !important;
+      height: 35px !important;
+      background-size: 20px 16px !important;
+      background-image: url("/assets/img/svg/icons/messaging-alternate.svg");
+    }
+  }
+  &.return-arrow {
+    &:hover {
+      cursor: pointer;
+    }
+    display: inline-block;
+    position: inherit;
+    content: " ";
+    width: 45px;
+    height: 26px;
+    background-size: 30px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/assets/img/svg/icons/left-arrow.svg");
+  }
+  &.road-icon {
+    &:after {
+      @extend %internal-icon;
+      background-image: url("/assets/img/svg/icons/road.svg");
+    }
+  }
+  &.challenge-icon {
+    &:after {
+      @extend %side-icon;
+      background-image: url("/assets/img/svg/icons/challenge.svg");
+    }
+  }
+  &.challenge-sm-icon {
+    &:after {
+      @extend %side-icon;
+      width: 43px !important;
+      height: 35px !important;
+      background-size: 20px 16px !important;
+      background-image: url("/assets/img/svg/icons/challenge.svg");
+    }
+  }
+  &.statistics-icon {
+    &:after {
+      @extend %side-icon;
+      background-image: url("/assets/img/svg/icons/statistics.svg");
+    }
+  }
+  &.trip-alternate-icon {
+    &:after {
+      @extend %internal-icon;
+      width: 40px !important;
+      height: 33px !important;
+      background-size: 33px 33px !important;
+      background-image: url("/assets/img/svg/icons/trip-alternate.svg");
+    }
+  }
+  &.trip-idle-icon {
+    &:after {
+      @extend %internal-icon;
+      width: 40px !important;
+      height: 33px !important;
+      background-size: 33px 33px !important;
+      background-image: url("/assets/img/svg/icons/idle.svg");
+    }
+  }
+  &.trip-duration-icon {
+    &:after {
+      @extend %internal-icon;
+      width: 40px !important;
+      height: 33px !important;
+      background-size: 33px 33px !important;
+      background-image: url("/assets/img/svg/icons/duration.svg");
+    }
+  }
+  &.trip-speed-icon {
+    &:after {
+      @extend %internal-icon;
+      width: 40px !important;
+      height: 33px !important;
+      background-size: 33px 33px !important;
+      background-image: url("/assets/img/svg/icons/speed.svg");
+    }
+  }
+  &.settings-icon {
+    &:after {
+      @extend %side-icon;
+      background-image: url("/assets/img/svg/icons/settings.svg");
+    }
+  }
+  &.conducteurs-icon {
+    &:after {
+      @extend %side-icon;
+      background-image: url("/assets/img/svg/icons/racer.svg");
+    }
+  }
+  &.administration-icon {
+    &:after {
+      @extend %side-icon;
+      background-image: url("/assets/img/svg/icons/administration.svg");
+    }
+  }
+  &.hour-icon {
+    &:after {
+      @extend %side-icon;
+      background-image: url("/assets/img/svg/icons/time.svg");
+    }
+  }
+  &.sun-icon {
+    &:after {
+      @extend %side-icon;
+      background-image: url("/assets/img/svg/icons/sun.svg");
+    }
+  }
+  &.trafic-icon {
+    &:after {
+      @extend %side-icon;
+      background-image: url("/assets/img/svg/icons/trafic-lights.svg");
+    }
+  }
+  &.shield-icon {
+    &:after {
+      @extend %right-side-icon;
+      background-image: url("/assets/img/svg/icons/shield.svg");
+    }
+  }
+  &.leaf-icon {
+    &:after {
+      @extend %right-side-icon;
+      background-image: url("/assets/img/svg/icons/leaf.svg");
+    }
+  }
+  &.add-group-icon {
+    &:hover {
+      cursor: pointer;
+    }
+    &:after {
+      display: -webkit-inline-box;
+      position: relative;
+      content: " ";
+      width: 33px;
+      height: 36px;
+      background-size: 17px 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/add-group.svg");
+    }
+  }
+  &.checked-box {
+    &:after {
+      width: 17px;
+      height: 10px;
+      //top: 21%;
+      //left: 30%;
+      background-size: 10px 10px;
+      display: -webkit-inline-box;
+      position: relative;
+      background-repeat: no-repeat;
+      content: " ";
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/checked-box.svg");
+    }
+  }
+  &.unchecked-box {
+    &:after {
+      width: 17px;
+      height: 10px;
+      //top: 21%;
+      //left: 30%;
+      background-size: 10px 10px;
+      display: -webkit-inline-box;
+      position: relative;
+      background-repeat: no-repeat;
+      content: " ";
+      background-position: center;
+      background-image: url("/assets/img/svg/icons/unchecked-box.svg");
+    }
+  }
+}
+i {
+  &.active,
+  &:hover {
+    cursor: pointer;
+    .fa {
+      //color: white;
+      opacity: 0.7;
+      box-shadow: 0 6px 12px 0 rgba(16, 27, 79, 0.21);
+      transition: all linear 0.4s;
+      &.tableau-de-bord-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/dashboard-house.svg");
+        }
+      }
+      &.iterinaire-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/trip.svg");
+        }
+      }
+      &.challenge-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/challenge.svg");
+        }
+      }
+
+      &.group-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/group.svg");
+        }
+      }
+      &.ranking-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/ranking.svg");
+        }
+      }
+      &.driver-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/driver.svg");
+        }
+      }
+      &.statistics-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/statistics.svg");
+        }
+      }
+      &.messaging-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/messaging.svg");
+        }
+      }
+      &.messaging-alternate-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/messaging-alternate.svg");
+        }
+      }
+      &.settings-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/settings.svg");
+        }
+      }
+      &.conducteurs-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/racer.svg");
+        }
+      }
+      &.vehicules-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/vehicle.svg");
+        }
+      }
+      &.challenge-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/challenge.svg");
+        }
+      }
+      &.sun-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/sun.svg");
+        }
+      }
+      &.trafic-icon {
+        &:after {
+          background-image: url("/assets/img/svg/icons/trafic-lights.svg");
+        }
+      }
+    }
+  }
+}

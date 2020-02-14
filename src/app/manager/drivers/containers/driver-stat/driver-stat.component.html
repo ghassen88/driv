@@ -1,0 +1,38 @@
+<div class="ChangeDriver">
+    <span translate class="actionTitle"> Change driver</span>
+    <div class="driver-dropdown" style="display: inline-block;">
+    <div #ChangeDriver="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']" class="d-inline-block"
+        [autoClose]="'outside'">
+        <div class="criteria-select" id="driversDisplay" ngbDropdownToggle translate>
+            <span *ngIf="driverResult != null">{{driverResult.name}} <i class="fa fa-chevron-down fa-xs"></i></span></div>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="driversDisplay">
+            <button class="dropdown-item" *ngFor="let driver of drivers$ | async"
+                (click)="LoadDriver(driver.driverId);ChangeDriver.close()">{{driver.nickName}}</button>
+        </div>
+    </div>
+    </div>
+</div>
+<drivata-driver-results [driverResult]="driverResult"></drivata-driver-results>
+<div class="content-switcher">
+    <div class="content-title" [ngClass]="{'selected': selectedSummary == Synthesis}"
+        (click)="selectedSummary = Synthesis">
+        <span translate>Synthesis</span>
+    </div>
+    <div class="content-title" [ngClass]="{'selected': selectedSummary == Cartography}"
+        (click)="selectedSummary = Cartography">
+        <span translate>Cartography</span>
+    </div>
+    <div class="switcher-line"></div>
+</div>
+<div>
+    <ng-container *ngTemplateOutlet="selectedSummary ? selectedSummary: Cartography"></ng-container>
+</div>
+<ng-template #Synthesis>
+    <drivata-driver-scores [driverScores]="driverScores$ | async"></drivata-driver-scores>
+    <drivata-driver-summary [driverSummaries]="driversummary$ | async"></drivata-driver-summary>
+</ng-template>
+<ng-template #Cartography>
+    <drivata-driver-trips [tripCount]="tripCount$ | async" [driverTrips]="driverTrips$ | async"
+        [tripDetail]="selectedTrip$ | async" (moreTrips)="loadMore($event)" (filterApplied)="ApplyFilter($event)"
+        (loadTrip)="LoadTrip($event)"></drivata-driver-trips>
+</ng-template>

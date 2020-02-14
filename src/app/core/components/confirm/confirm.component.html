@@ -1,0 +1,10 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title" translate>{{requestedAction}}</h4>
+</div>
+<div class="modal-body">
+    <p translate>{{actionDescription}}</p><br>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')" translate>Cancel</button>
+    <button type="button" ngbAutofocus class="btn" [ngClass]="{'btn-danger': confirmType === 0 , 'btn-success':confirmType === 1}" (click)="modal.close('Ok click')">Ok</button>
+  </div>

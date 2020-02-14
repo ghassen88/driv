@@ -1,0 +1,22 @@
+<div class="summary-selector">
+    <span class="selector-title" (click)="Show(PerformancesSummary)"
+        [ngClass]="{'selector-title-active': selectedSummary == PerformancesSummary}" translate>Performances</span>
+    <span class="selector-title" (click)="Show(StatisticsSummary)"
+        [ngClass]="{'selector-title-active': selectedSummary == StatisticsSummary}" translate>Statistics</span>
+    <span class="selector-title" (click)="Show(SavingsSummary)"
+        [ngClass]="{'selector-title-active': selectedSummary == SavingsSummary}" translate>Savings</span>
+</div>
+<div class="summary">
+    <ng-container *ngTemplateOutlet="selectedSummary ? selectedSummary: StatisticsSummary"></ng-container>
+</div>
+<ng-template #PerformancesSummary>
+    <drivata-performance-summary [summaries]="driverSummaries"></drivata-performance-summary>
+</ng-template>
+<ng-template #StatisticsSummary>
+    <drivata-statistics-summary [summaries]="driverSummaries" ></drivata-statistics-summary>
+
+</ng-template>
+<ng-template #SavingsSummary>
+    <drivata-savings-summary [summaries]="driverSummaries"></drivata-savings-summary>
+
+</ng-template>

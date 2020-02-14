@@ -1,0 +1,53 @@
+<div class="container">
+<div class="SubcriptionForm">
+<form [formGroup]="managerForm"  (ngSubmit)="onSubmit()" novalidate>
+    <label>
+        Prénom:
+        <input type="text" formControlName="firstName"  >
+    </label>
+
+     <label>
+        Nom:
+        <input type="text" formControlName="lastName"  >
+    </label>
+    <label>
+        Pseudo:
+        <input type="text" formControlName="userName"  >
+    </label>
+    <label>
+        Mot de passe:
+        <input type="password" formControlName="password"  >
+    </label>
+    <label>
+        confirm mot de passe:
+        <input type="password" formControlName="confirmPassword"  >
+    </label>
+    <div formGroupName="address">
+        <label>
+            Adresse:
+            <input type="text" formControlName="address"  >
+        </label>
+        <label>
+            Ville:
+            <input type="text" formControlName="city"  >
+        </label>
+        <label>
+            Code postal:
+            <input type="number" formControlName="zip" >
+        </label>
+        <label>
+            Téléphone:
+            <input type="text" formControlName="phoneNumber"  >
+        </label>
+    </div> 
+    <label>
+        Nom de l'equipe:
+        <input type="text" formControlName="teamName"  >
+    </label>
+    <button type="submit" [disabled]="!managerForm.valid">Save</button>
+    <!-- <button type="reset" (click)="revert()" [disabled]="contactForm.pristine">
+        Revert
+    </button> -->
+</form>
+</div>
+</div>

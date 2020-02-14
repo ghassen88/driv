@@ -1,0 +1,123 @@
+<div class="membreSummary">
+    <div style="padding:15px 0px 15px 15px;display: flex;">
+        <div class="members-action">
+            <p class="summary-title" *ngIf="drivers != null" translate>Members
+                <span class="summary-subtitle" translate> | {{driverCount}} driver</span>
+            </p>
+
+            <div class="search">
+                <input type="text" placeholder="Search for a driver..." (input)="onSearchChange($event.target.value)" />
+            </div>
+        </div>
+        <i class="add add-action" (click)="InviteDriver()"></i>
+
+    </div>
+    <div class="summary-selector" style="box-shadow: none;">
+        <span class="selector-title" (click)="Filter(1)" [ngClass]="{'selector-title-active': filterState == 1}"
+            translate>All</span>
+        <span class="selector-title" (click)="Filter(2)" [ngClass]="{'selector-title-active': filterState == 2}"
+            translate>Active</span>
+        <span class="selector-title" (click)="Filter(3)" [ngClass]="{'selector-title-active': filterState == 3}"
+            translate>Inactive</span>
+        <span class="selector-title" (click)="Filter(4)" [ngClass]="{'selector-title-active': filterState == 4}"
+            translate>Followed</span>
+        <span class="selector-title" (click)="Filter(5)" [ngClass]="{'selector-title-active': filterState == 5}"
+            translate>Good</span>
+        <span class="selector-title" (click)="Filter(6)" [ngClass]="{'selector-title-active': filterState == 6}"
+            translate>Excelent</span>
+
+    </div>
+    <div class="drivers" (resized)="onResized($event)">
+        <table class="table-header">
+            <thead>
+                <tr>
+                    <ng-container *ngFor="let column of columnsNames; let c = index">
+                        <th (click)="Sort(driverAttributes[c])"
+                            [ngClass]="{'sortColumn': sortedColumn == driverAttributes[c]}" *ngIf="view[c]" translate>
+                            {{column}}<span *ngIf="sortedColumn == driverAttributes[c]"><i *ngIf="sortAscend"
+                                    class="fa fa-chevron-up"></i><i *ngIf="!sortAscend" class="fa fa-chevron-down"></i></span>
+                        </th>
+                    </ng-container>
+                    <th class="align-middle text-right">
+                        <div ngbDropdown placement="bottom-right" class="d-inline-block" [autoClose]="'outside'">
+                            <button class="btn btn-standard" id="columnsNames" ngbDropdownToggle><i
+                                    class="fa fa-ellipsis-v fa-sm"></i></button>
+                            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="columnsNames">
+                                <button class="dropdown-item" *ngFor="let col of columnsNames; let c = index"
+                                    (click)="view[c] = !view[c]" translate>
+                                    <i *ngIf="view[c]; else unchecked" class="checked-box"></i>
+                                    <ng-template #unchecked><i class="unchecked-box"></i></ng-template>
+                                    {{col}}
+                                </button>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let driver of showedDrivers;let c = index" class="ele-foc" [tabindex]="c">
+                    <td *ngIf="view[0]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[0] }">
+                        {{driver.firstName}}</td>
+                    <td *ngIf="view[1]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[1] }">
+                        {{driver.lastName}}</td>
+                    <td *ngIf="view[2]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[2] }">
+                        {{driver.nickname}}</td>
+                    <td *ngIf="view[3]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[3] }">
+                        {{driver.ecoDriving}}</td>
+                    <td *ngIf="view[4]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[4] }">
+                        {{driver.security}}</td>
+                    <td *ngIf="view[5]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[5] }">
+                        {{driver.distraction}}</td>
+                    <td *ngIf="view[6]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[6] }">
+                        {{driver.tripCount}}</td>
+                    <td *ngIf="view[7]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[7] }">
+                        {{driver.distance | distance}} km</td>
+                    <td *ngIf="view[8]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[8] }">
+                        {{driver.duration | time}}</td>
+                    <td *ngIf="view[9]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[9] }">
+                        {{driver.firstTrip | date:'dd/MM/yy'}}</td>
+                    <td *ngIf="view[10]" [ngClass]="{'sortColumn': sortedColumn ==driverAttributes[10] }">
+                        {{driver.lastTrip | date:'dd/MM/yy'}}</td>
+                    <td class="align-middle text-right">
+                        <!-- <div class="actions">Actions <i class="fa fa-sort-down"></i></div> -->
+                        <div ngbDropdown [placement]="['bottom-left','top-left']" class="d-inline-block"
+                            [autoClose]="'outside'">
+                            <button class="actions" [id]="'actions-' + driver.driverId" ngbDropdownToggle
+                                translate>Actions</button>
+                            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="'actions-' + driver.driverId">
+                                <button class="dropdown-item" translate>Profile</button>
+                                <a class="dropdown-item" (click)="ShowDriverStat(driver.driverId)" translate>View</a>
+                                <button class="dropdown-item" translate>Send a message</button>
+                                <button class="dropdown-item" translate>Deactivate</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pageOptions align-middle">
+            <div class="rowCount">
+                <p translate>show</p>
+                <ng-select id="pageOptions" [dropdownPosition]="'auto'" [items]="rowCounts" appendTo="#pageOptions"
+                    class="DrivataSelect" [searchable]="false" name="rowCount" [clearable]="false"
+                    [(ngModel)]="rowCount" (change)="Show()">
+                </ng-select>
+                <p translate> lines</p>
+            </div>
+            <div class="pages">
+                <div class="option" [ngClass]="{'clickable': page > 1}" (click)="LoadPage(1,false,'backward')"><i
+                        class="first-icon"></i></div>
+                <div class="option" [ngClass]="{'clickable': page > 1}" (click)="LoadPage(-1,true,'backward')"><i
+                        class="previous-icon"></i></div>
+                <div class="option" *ngFor="let n of [].constructor(GetPageCount()); let i = index"
+                    [ngClass]="{'clickable': page != i+1,'selected':page == i+1}" (click)="LoadPage(i+1)">{{i + 1}}
+                </div>
+                <div class="option" [ngClass]="{'clickable': page < driverCount / rowCount}"
+                    (click)="LoadPage(1,true,'forward')"><i class="next-icon"></i></div>
+                <div class="option" [ngClass]="{'clickable': page < driverCount / rowCount}"
+                    (click)="LoadPage(driverCount / rowCount,false,'forward')"><i class="last-icon"></i></div>
+            </div>
+        </div>
+
+    </div>
+</div>

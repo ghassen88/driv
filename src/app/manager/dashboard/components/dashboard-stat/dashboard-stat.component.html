@@ -1,0 +1,127 @@
+<div class="stat-summary">
+    <!-- <div class="row">
+            <div class="col-lm-12 col-xl-4">
+                <div class="stat-container focused" *ngIf="groupStat != null; else Stat1PlaceHolderDouble">
+                    <p translate> REGISTERED DRIVERS </p><i class="top-left group-icon"></i>
+                    <p class="number">{{groupStat.driversCount}}</p>
+                    <div class="line"></div>
+                    <div *ngIf="groupStat.currentWeekNewDriversCount !=0; else ConstantEfficiency" class="inline">
+                        <p class="arrondi">{{groupStat.currentWeekNewDriversCount}}</p>
+                        <p translate>new driver this week</p>
+                    </div>
+                    <ng-template #ConstantEfficiency>
+                        <p class="inline" translate>Constant staff this week</p>
+                    </ng-template> <i class="messaging-alternate-icon"></i>
+                </div>
+            </div>
+
+            <div class="col-lm-6 col-xl-4">
+                <div class="stat-container" *ngIf="groupStat != null; else Stat1PlaceHolder">
+                    <p translate> DISTANCE </p><i class="top-left road-icon"></i>
+                    <p class="number">{{groupStat.totalDistance | distance }} km</p>
+                    <div class="line"></div>
+                    <div class="inline blurred">
+                        <p>{{groupStat.currentWeekDistance | distance}} km</p>
+                        <p translate> this week </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lm-6 col-xl-4">
+
+                <div class="stat-container" *ngIf="groupStat != null; else Stat1PlaceHolder">
+                    <p translate> TRIPS </p><i class="top-left trip-alternate-icon"></i>
+                    <p class="number">{{groupStat.tripCount}}</p>
+                    <div class="line"></div>
+                    <div class="inline blurred">
+                        <p>{{groupStat.currentWeekTripcount}}</p>
+                        <p translate> this week </p>
+                    </div>
+                </div>
+            </div>
+            <ng-template #Stat1PlaceHolderDouble>
+                <div class="stat-container">
+                    <drivata-stat1-place-holder></drivata-stat1-place-holder>
+                </div>
+            </ng-template>
+            <ng-template #Stat1PlaceHolder>
+                <div class="stat-container">
+                    <drivata-stat1-place-holder></drivata-stat1-place-holder>
+                </div>
+            </ng-template>
+        </div> -->
+    <div class="row stat-scores-container">
+
+        <!-- <div class="col-lm-12 col-xl-4">
+                <div *ngIf="groupStat != null; else Stat2PlaceHolderDouble"
+                    (resized)="onResized2Double($event)">
+                    <p translate> DRIVERS CATEGORY</p>
+                    <div class="line"></div>
+                    <drivata-donut-chart [view]="view" [color]="colorScheme" [data]="data" [gradient]="true"
+                        (selectData)="select($event)">
+                    </drivata-donut-chart>
+                </div>
+            </div> -->
+        <div class="col-lm-6 col-xl-3 stat-score-container" (resized)="onResized2($event)">
+            <div *ngIf="groupStat != null; else Stat2PlaceHolder" >
+                <div class="tooltip-title">
+                    <p translate> SAFETY SCORE</p>
+                    <i class="tooltip-icon"></i>
+                </div>
+                <!-- <div class="line"></div> -->
+                    <div>
+                    <!-- <drivata-rating-circle [view]="view2" [scheme]="'#02e2b3'" [results]="safetyScore"
+                        [logo]="groupStat.lastWeekSafetyScore">
+                    </drivata-rating-circle> -->
+                    <div class="score-icon">
+                        <i class="shield-icon"></i>
+                    </div>
+                    <div class="score-icon">
+                        <i class="shield-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-lm-6 col-xl-3 stat-score-container">
+            <div *ngIf="groupStat != null; else Stat2PlaceHolder">
+                <div class="tooltip-title">
+                    <p translate> ECO-DRIVING SCORE</p>
+                    <i class="tooltip-icon"></i>
+                </div>
+                <div class="line"></div>
+                <drivata-rating-circle [view]="view2" [scheme]="'#ccdc35'" [results]="ecoDrivingScore"
+                    [logo]="groupStat.lastWeekEcoDrivingScore">
+                </drivata-rating-circle>
+                <div class="score-icon">
+                    <i class="leaf-icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lm-6 col-xl-3 stat-score-container">
+            <div *ngIf="groupStat != null; else Stat2PlaceHolder" (resized)="onResized2($event)">
+                <div class="tooltip-title">
+                    <p translate> Distraction score</p>
+                    <i class="tooltip-icon"></i>
+                </div>
+                <div class="line"></div>
+                <drivata-rating-circle [view]="view2" [scheme]="'#7e6dd4'" [results]="safetyScore"
+                    [logo]="groupStat.lastWeekSafetyScore">
+                </drivata-rating-circle>
+                <div class="score-icon">
+                    <i class="shield-icon"></i>
+                </div>
+            </div>
+        </div> -->
+        <ng-template #Stat2PlaceHolderDouble>
+            <div class="stat-score-container">
+                <drivata-stat2-place-holder></drivata-stat2-place-holder>
+            </div>
+        </ng-template>
+        <ng-template #Stat2PlaceHolder>
+            <div class="stat-score-container">
+                <drivata-stat2-place-holder></drivata-stat2-place-holder>
+            </div>
+        </ng-template>
+    </div>
+
+
+</div>

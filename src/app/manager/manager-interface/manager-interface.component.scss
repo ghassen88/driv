@@ -1,0 +1,16 @@
+.drivata-body{
+    width: 100%;
+    height: 100%;
+    //background-image: url('/assets/img/pattern.jpg');
+    //
+    .borders{
+        position: fixed;
+        display: inline-flex;
+        width: 100%;
+        z-index: -10;
+        background-color: #eff0f3;
+        height: 100%;
+        //background-image: linear-gradient(60deg,#0951f9 0%,#55bfed 100%)!important;
+
+    }
+}

@@ -1,0 +1,63 @@
+<div class="chartSummary">
+    <div class="chart-control-holder">
+        <div class="summary-title"><span translate>{{selectedVariable | key:variables}}</span>/<span translate>{{selectedContext}}</span></div>
+        <div class="controls">
+            <div class="criteria">
+                <div #variableFilter="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']" class="d-inline-block"
+                    [autoClose]="'outside'">
+                    <div class="criteria-select" id="performanceVariable" ngbDropdownToggle translate>
+                        <span>{{selectedVariable | key:variables}} <i class="fa fa-chevron-down fa-xs"></i></span></div>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="performanceVariable">
+                        <button class="dropdown-item" *ngFor="let p of variables | keys" (click)="filterByVariable(p.key);variableFilter.close()"
+                            translate>{{p.value}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="criteria">
+                <div #ContextFilter="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']" class="d-inline-block"
+                    [autoClose]="'outside'">
+                    <div class="criteria-select" id="contextVariables" ngbDropdownToggle translate>
+                        <span>{{selectedContext | key:contexts}} <i class="fa fa-chevron-down fa-xs"></i></span></div>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="contextVariables">
+                        <button class="dropdown-item" *ngFor="let p of contexts | keys" (click)="filterByContext(p.key);ContextFilter.close()"
+                            translate>{{p.value}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="criteria">
+                <div #PeriodFilter="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']" class="d-inline-block"
+                    [autoClose]="'outside'">
+                    <div class="criteria-select" id="performancePeriod" ngbDropdownToggle translate>
+                        <span>{{selectedPeriod}} <i class="fa fa-chevron-down fa-xs"></i></span></div>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="performancePeriod">
+                        <button class="dropdown-item" *ngFor="let p of periods | keys" (click)="DisplayPerPeriod(p.key);PeriodFilter.close()"
+                            translate>{{p.value}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="criteria">
+                <div #DisplayFilter="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']" class="d-inline-block"
+                    [autoClose]="'outside'">
+                    <div class="criteria-select" id="displayPeriod" ngbDropdownToggle translate>
+                        <span>{{selectedDisplay}} <i class="fa fa-chevron-down fa-xs"></i></span></div>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="displayPeriod">
+                        <button class="dropdown-item" (click)="ChangeDisplay('Week');DisplayFilter.close()"  translate>week</button>
+                        <button class="dropdown-item" (click)="ChangeDisplay('Month');DisplayFilter.close()" translate>month</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="chart-holder" (resized)="onResized($event)" style="margin-top: 3%;">
+        <drivata-line-chart *ngIf="data"
+            [data]="data"
+            [view]="view"
+            [color]="'ocean'"
+            [showYaxisLine]="true"
+            [showXaxisLine]="true"
+            >
+        </drivata-line-chart>
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+<div class="date-picker-menu">
+    <div *ngIf="range.length != 0;else period">
+        <span translate> from</span>
+         {{range[0] | date:'mediumDate'}}
+        <span translate> to</span>
+         {{range[1] | date:'mediumDate'}}
+
+    </div>
+    <ng-template #period> 
+        <span translate> {{selectedDate}}</span>
+    </ng-template>
+    <div style="padding-top: 5%;">
+        <div class="period-picker">
+            <div>
+                <p translate (click)="ChoosePeriod(1)">This week</p>
+                <p translate (click)="ChoosePeriod(2)">Last week</p>
+                <p translate (click)="ChoosePeriod(3)">This month</p>
+                <p translate (click)="ChoosePeriod(4)">Last month</p>
+                <p translate (click)="ChoosePeriod(5)">Last three months</p>
+                <p translate (click)="ChoosePeriod(6)">This year</p>
+            </div>
+        </div>
+        <drivata-date-range-picker [range]="range" (dateSelected)="GetDate($event)"></drivata-date-range-picker>
+    </div>
+    <div class="filter-actions">
+        <button class="btn btn-outline-secondary" (click)="Reset()" translate>Reset</button>
+        <button class="btn btn-outline-success" (click)="Apply()"translate>Apply</button>
+    </div>
+</div>

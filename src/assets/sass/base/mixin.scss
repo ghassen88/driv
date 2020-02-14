@@ -1,0 +1,48 @@
+// unitless function to convert px to em
+@function em($pixels, $context: $browser-context) {
+    @if (unitless($pixels)) {
+      $pixels: $pixels * 1px;
+    }
+    @if (unitless($context)) {
+      $context: $context * 1px;
+    }
+    @return $pixels / $context * 1rem;
+  }
+
+// breakpoint mixin
+@mixin breakpoint($mq01: 0, $mq2: false, $maxmin: max-width) {
+    @if $mq2 == false {
+        @media ($maxmin: $mq01) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: $mq01) and (max-width: $mq2) {
+            @content;
+        }
+    }
+}
+
+// responsive font size mixin
+@mixin font-size-map($s1,$s2,$s3,$s4,$s5) {
+    $font-size : ($xl:$s1,$lg:$s2,$md:$s3,$sm:$s4,$xs:$s5);
+
+    @include font-size-itirate($font-size);
+}
+@mixin font-size-itirate($font-size-itirate) {
+    @each $breakpoint, $font-size in $font-size-itirate {
+        @if $breakpoint == null {
+            font-size: em($font-size);
+        } @else {
+            @include breakpoint($breakpoint) {
+                font-size: em($font-size);
+            }
+        }
+    }
+}
+$xl: 2000px;
+$lg: 1170px;
+$md: 1024px;
+$sm: 640px;
+$xs: 480px;
+$browser-context: 16;

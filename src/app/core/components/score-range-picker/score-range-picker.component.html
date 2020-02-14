@@ -1,0 +1,53 @@
+<div class="range-selector">
+
+    <ng-container *ngIf="highValue != limits[1] &&  minValue != limits[0];else DisplayMin">
+        <span translate>&nbsp;{{selectedScore}}</span>
+        <span translate>&nbsp;between</span>&nbsp;{{minValue}}
+        <span translate>&nbsp;and</span>&nbsp;{{highValue}}
+    </ng-container>
+    <ng-template #DisplayMin>
+        <ng-container translate *ngIf="minValue != limits[0];else DisplayMax">
+            <span translate>&nbsp;{{selectedScore}}</span>
+            <span translate>&nbsp;more than</span>&nbsp;{{minValue}}
+        </ng-container>
+    </ng-template>
+    <ng-template #DisplayMax>
+        <ng-container *ngIf="highValue != limits[1] ;else DisplayNone">
+            <span translate>&nbsp;{{selectedScore}}</span>
+            <span translate>&nbsp;less than</span>&nbsp;{{highValue}}
+        </ng-container>
+    </ng-template>
+    <ng-template #DisplayNone>
+        <span translate> {{selectedScore}}</span>
+    </ng-template>
+    <br><br>
+    <div>
+        <div>
+            <label class="drivata-radio-button">
+                <input type="radio" [(ngModel)]="selectedScore" name="selectedScore" value="Safety score" />
+                <span class="checkmark"></span>
+                <span translate> Safety score</span>
+            </label>
+        </div>
+        <div>
+            <label class="drivata-radio-button">
+                <input type="radio" [(ngModel)]="selectedScore" name="selectedScore" value="Eco driving score" />
+                <span class="checkmark"></span>
+                <span translate> Eco driving score</span>
+            </label>
+        </div>
+        <div>
+            <label class="drivata-radio-button">
+                <input type="radio" [(ngModel)]="selectedScore" name="selectedScore" value="Distraction score" />
+                <span class="checkmark"></span>
+                <span translate> Distraction score</span>
+            </label>
+        </div>
+    </div>
+    <ng5-slider [(value)]="minValue" [(highValue)]="highValue" [options]="options"></ng5-slider>
+    <div class="filter-actions">
+        <button class="btn btn-outline-secondary" (click)="Reset()" translate>Reset</button>
+        <button class="btn btn-outline-success" (click)="Apply()" translate>Apply</button>
+    </div>
+
+</div>

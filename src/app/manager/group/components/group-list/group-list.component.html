@@ -1,0 +1,84 @@
+<div class="stat-summary">
+    <div class="row" style="width:100%;">
+        <div class="col-lm-12 col-xl-4">
+            <div class="stat-container focused" *ngIf="groups != null; else Stat1PlaceHolderDouble">
+                <p> NUMBER OF GROUPS </p><i class="top-left group-icon"></i>
+                <p class="number">{{groups.length}}</p>
+            </div>
+            <ng-template #Stat1PlaceHolderDouble>
+                <div class="stat-container">
+                    <drivata-stat1-place-holder></drivata-stat1-place-holder>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div class="summary">
+        <div class="membreSummary">
+            <div style="padding:15px;">
+                <p class="summary-title" *ngIf="groups != null">Groups<span class="summary-subtitle"></span></p>
+                <div class="actions">
+                    <i class="add" (click)="AddGroup()"></i>
+                </div>
+            </div>
+            <div class="summary-selector" style="box-shadow: none;">
+                <span class="selector-title" (click)="Filter(false)" [ngClass]="{'selector-title-active': !active}"
+                    translate>All</span>
+                <span class="selector-title" (click)="Filter(true)" [ngClass]="{'selector-title-active': active}"
+                    translate>Active</span>
+            </div>
+            <table class="table-header">
+                <thead>
+                    <tr>
+                        <ng-container *ngFor="let column of groupColumns; let c = index">
+                            <th (click)="Sort(groupAttributes[c])"
+                                [ngClass]="{'sortColumn': sortedColumn == groupAttributes[c]}" translate>
+                                {{column}}<span *ngIf="sortedColumn == groupAttributes[c]"><i *ngIf="sortAscend"
+                                        class="fa fa-sort-up"></i><i *ngIf="!sortAscend"
+                                        class="fa fa-sort-down"></i></span>
+                            </th>
+                        </ng-container>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let group of showedGroups;let c = index">
+                        <td [ngClass]="{'sortColumn': sortedColumn ==groupColumns[0] }" translate>
+                            {{group.name}}</td>
+                        <td [ngClass]="{'sortColumn': sortedColumn ==groupColumns[1] }" translate>
+                            {{group.members}}</td>
+                        <td [ngClass]="{'sortColumn': sortedColumn ==groupColumns[2] }" translate>
+                            {{group.createdAt | date:'shortDate'}}</td>
+                        <td [ngClass]="{'sortColumn': sortedColumn ==groupColumns[3] }" translate>
+                            {{group.admins.length}}</td>
+                        <td [ngClass]="{'sortColumn': sortedColumn ==groupColumns[4] }" translate>
+                            {{group.isActif | actifPipe}}</td>
+                        <td class="align-middle text-right">
+                            <!-- <div class="actions">Actions <i class="fa fa-sort-down"></i></div> -->
+                            <div ngbDropdown [placement]="['bottom-left','top-left']" class="d-inline-block"
+                                [autoClose]="'outside'">
+                                <button class="actions" [id]="'actions-' + group.groupId" ngbDropdownToggle
+                                    translate>Actions</button>
+                                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="'actions-' + group.groupId">
+                                    <button *ngIf="c != 0" class="dropdown-item"
+                                        (click)="ApplyAction(group.groupId,'edit')" translate>Edit</button>
+                                    <button *ngIf="c != 0" class="dropdown-item"
+                                        (click)="ApplyAction(group.groupId,'state')"
+                                        translate>{{group.isActif | disablePipe}}</button>
+                                    <button *ngIf="c != 0 && !group.isActif" class="dropdown-item"
+                                        (click)="ApplyAction(group.groupId,'delete')" translate>Delete</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pageOptions align-middle">
+                <p>show</p>
+                <ng-select id="pageOptions" [dropdownPosition]="'auto'" [items]="rowCounts" appendTo="#pageOptions"
+                    class="DrivataSelect" [searchable]="false" name="rowCount" [clearable]="false"
+                    [(ngModel)]="rowCount" (change)="Show()">
+                </ng-select>
+                <p>lines</p>
+            </div>
+        </div>
+    </div>

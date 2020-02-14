@@ -1,0 +1,56 @@
+<div class="stat-summary">
+    <div class="row">
+
+        <div class="col-lm-12 col-xl-4">
+            <div class="stat-score-container" *ngIf="driverScores != null; else Stat2PlaceHolderDouble"
+                (resized)="onResized2Double($event)">
+                <p translate> DRIVING CONTEXT</p>
+                <div class="line"></div>
+                <drivata-donut-chart [view]="view" [color]="colorScheme" [data]="data" [gradient]="true"
+                    [showValue]="false" (selectData)="select($event)">
+                </drivata-donut-chart>
+            </div>
+        </div>
+        <div class="col-lm-6 col-xl-4">
+            <div class="stat-score-container" *ngIf="driverScores != null; else Stat2PlaceHolder"
+                (resized)="onResized2($event)">
+                <div class="tooltip-title">
+                    <p translate> SAFETY SCORE</p>
+                    <i class="tooltip-icon"></i>
+                </div>
+                <div class="line"></div>
+                <drivata-rating-circle [view]="view2" [scheme]="'#E27402'" [results]="safetyScore"
+                    [logo]="driverScores.lastWeekSafetyScore">
+                </drivata-rating-circle>
+                <div class="score-icon">
+                    <i class="shield-icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lm-6 col-xl-4">
+            <div class="stat-score-container" *ngIf="driverScores != null; else Stat2PlaceHolder">
+                <div class="tooltip-title">
+                    <p translate> ECO-DRIVING SCORE</p>
+                    <i class="tooltip-icon"></i>
+                </div>
+                <div class="line"></div>
+                <drivata-rating-circle [view]="view2" [scheme]="'#ccdc35'" [results]="ecoDrivingScore"
+                    [logo]="driverScores.lastWeekEcoDrivingScore">
+                </drivata-rating-circle>
+                <div class="score-icon">
+                    <i class="leaf-icon"></i>
+                </div>
+            </div>
+        </div>
+        <ng-template #Stat2PlaceHolderDouble>
+            <div class="stat-score-container">
+                <drivata-stat2-place-holder></drivata-stat2-place-holder>
+            </div>
+        </ng-template>
+        <ng-template #Stat2PlaceHolder>
+            <div class="stat-score-container">
+                <drivata-stat2-place-holder></drivata-stat2-place-holder>
+            </div>
+        </ng-template>
+    </div>
+</div>

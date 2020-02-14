@@ -1,0 +1,180 @@
+<div class="summary">
+    <div class="tripsSummary">
+        <p *ngIf="loadedTrip == null; else tripDate" class="summary-title " translate>Trips <span
+                class="summary-subtitle" translate> {{tripCount}} trip</span>
+        </p>
+        <ng-template #tripDate>
+            <p class="summary-title" translate><i class="return-arrow" (click)="loadedTrip = null"></i> <span class="summary-subtitle"> {{loadedTrip.startDate | date:'fullDate'}}</span></p>
+        </ng-template>
+        <div class="actions">
+            <span translate>filter by</span>
+            <div class="criteria">
+                <div #DateFilter="ngbDropdown" ngbDropdown class="d-inline-block" [autoClose]="'outside'">
+                    <div class="criteria-select" ngbDropdownToggle translate><span *ngIf="isPeriod; else rangeDisplay">
+                            {{periodLabel}} <i class="fa fa-chevron-down fa-xs"></i></span>
+                        <ng-template #rangeDisplay>
+                            <span>
+                                <span translate> from</span>
+                                {{dateRange[0] | date:'dd/MM/yy'}}
+                                <span translate> to</span>
+                                {{dateRange[1] | date:'dd/MM/yy'}}
+                                <i class="fa fa-chevron-down fa-xs"></i></span>
+                        </ng-template>
+                    </div>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="DateFilter">
+
+                        <drivata-period-picker (DateSelected)="FilterByDate($event);DateFilter.close()">
+                        </drivata-period-picker>
+                    </div>
+                </div>
+                <div #DistanceFilter="ngbDropdown" ngbDropdown class="d-inline-block" [autoClose]="'outside'">
+                    <div class="criteria-select" ngbDropdownToggle translate>
+                        <span *ngIf="distanceRange[1] != null &&  distanceRange[0] != null;else DisplayDistanceMin">
+                            <span translate>From</span>&nbsp;{{distanceRange[0]}}km
+                            <span translate>Up to</span>&nbsp;{{distanceRange[1]}}km<i
+                                class="fa fa-chevron-down fa-xs"></i>
+                        </span>
+                        <ng-template #DisplayDistanceMin>
+                            <ng-container translate *ngIf="distanceRange[0] != null;else DisplayDistanceMax">
+                                <span translate>From&nbsp;{{distanceRange[0]}}km<i class="fa fa-chevron-down fa-xs"></i>
+                                </span>
+                            </ng-container>
+                        </ng-template>
+                        <ng-template #DisplayDistanceMax>
+                            <ng-container *ngIf="distanceRange[1] != null ;else DisplayDistanceNone">
+                                <span translate>Up to&nbsp;{{distanceRange[1]}}km<i
+                                        class="fa fa-chevron-down fa-xs"></i>
+                                </span>
+                            </ng-container>
+                        </ng-template>
+                        <ng-template #DisplayDistanceNone>
+                            <span translate> Distance<i class="fa fa-chevron-down fa-xs"></i></span>
+                        </ng-template>
+
+                    </div>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="DistanceFilter">
+                        <drivata-range-picker [limits]="distanceLimits" [unit]="'km'" [label]="'Distance'"
+                            (RangeSelected)="FilterByDistance($event);DistanceFilter.close()">
+                        </drivata-range-picker>
+                    </div>
+                </div>
+                <div #DurationFilter="ngbDropdown" ngbDropdown class="d-inline-block" [autoClose]="'outside'">
+                    <div class="criteria-select" ngbDropdownToggle translate>
+                        <span *ngIf="durationRange[1] != null &&  durationRange[0] != null;else DisplayDurationMin">
+                            <span translate>From</span>&nbsp;{{durationRange[0]}}mn
+                            <span translate>Up to</span>&nbsp;{{durationRange[1]}}mn<i
+                                class="fa fa-chevron-down fa-xs"></i>
+                        </span>
+                        <ng-template #DisplayDurationMin>
+                            <ng-container translate *ngIf="durationRange[0] != null;else DisplayDurationMax">
+                                <span translate>From&nbsp;{{durationRange[0]}}mn<i class="fa fa-chevron-down fa-xs"></i>
+                                </span>
+                            </ng-container>
+                        </ng-template>
+                        <ng-template #DisplayDurationMax>
+                            <ng-container *ngIf="durationRange[1] != null ;else DisplayDurationNone">
+                                <span translate>Up to&nbsp;{{durationRange[1]}}mn<i
+                                        class="fa fa-chevron-down fa-xs"></i>
+                                </span>
+                            </ng-container>
+                        </ng-template>
+                        <ng-template #DisplayDurationNone>
+                            <span translate> Duration<i class="fa fa-chevron-down fa-xs"></i></span>
+                        </ng-template>
+                    </div>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="DurationFilter">
+                        <drivata-range-picker [limits]="[0,60]" [unit]="'mn'" [label]="'Duration'"
+                            (RangeSelected)="FilterByDuration($event);DurationFilter.close()">
+                        </drivata-range-picker>
+                    </div>
+                </div>
+                <div #ScoreFilter="ngbDropdown" ngbDropdown class="d-inline-block" [autoClose]="'outside'">
+                    <div class="criteria-select" ngbDropdownToggle translate>
+                        <span *ngIf="scoreRange[1] != null &&  scoreRange[0] != null;else DisplayScoreMin">
+                            <span translate>{{selectedScore}}</span>&nbsp;
+                            <span translate>between</span>&nbsp;{{scoreRange[0]}}
+                            <span translate>and</span>&nbsp;{{scoreRange[1]}}<i class="fa fa-chevron-down fa-xs"></i>
+                        </span>
+                        <ng-template #DisplayScoreMin>
+                            <ng-container translate *ngIf="scoreRange[0] != null;else DisplayScoreMax">
+                                <span translate>{{selectedScore}}</span>&nbsp;
+                                <span translate>more than&nbsp;{{scoreRange[0]}}<i class="fa fa-chevron-down fa-xs"></i>
+                                </span>
+                            </ng-container>
+                        </ng-template>
+                        <ng-template #DisplayScoreMax>
+                            <ng-container *ngIf="scoreRange[1] != null ;else DisplayScoreNone">
+                                <span translate>{{selectedScore}}</span>&nbsp;
+                                <span translate>less than&nbsp;{{scoreRange[1]}}<i class="fa fa-chevron-down fa-xs"></i>
+                                </span>
+                            </ng-container>
+                        </ng-template>
+                        <ng-template #DisplayScoreNone>
+                            <span translate>{{selectedScore}}<i class="fa fa-chevron-down fa-xs"></i></span>
+                        </ng-template>
+                    </div>
+                    <div ngbDropdownMenu class="dropdown-menu inverse-diplay" aria-labelledby="ScoreFilter">
+                        <drivata-score-range-picker [selectedScore]="selectedScore" [limits]="scoreLimits"
+                            (ScoreRangeSelected)="FilterByScore($event);ScoreFilter.close()">
+                        </drivata-score-range-picker>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div style="display: flex;">
+        <div *ngIf="loadedTrip == null; else tripInformation" class="trip-list">
+            <ng-scrollbar class="scrollbar-trip">
+
+                <div *ngFor="let trip of driverTrips; let i = index" class="trip-detail"
+                    [ngClass]="{'selected': selected == trip}" (click)="LoadTripDetail(trip.tripId,i)">
+                    <div class="trip-date">
+                        <span>{{trip.startDate | date:'fullDate'}}</span>
+                        <div ngbDropdown placement="bottom-right" class="d-inline-block" [autoClose]="'outside'">
+                            <button class="btn btn-standard" id="actions" ngbDropdownToggle>
+                                <i class="elipsiss-icon"></i></button>
+                            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="actions">
+                                <button class="dropdown-item" (click)="ViewTripDetail(trip)" translate>Details</button>
+                                <button class="dropdown-item" (click)="DeleteTrip(trip.tripId)"
+                                    translate>Delete</button>
+                            </div>
+                        </div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="trip-time">
+                        <i class="trip-line-icon"></i>
+                        <div>
+                            <div class="minus-oval">
+                                <span>{{trip.startDate | date: 'shortTime'}}</span>
+                                <span class="addresse"><i class="marker-icon"></i> {{trip.startAddress}}</span>
+                            </div>
+                            <div class="minus-oval">
+                                <span>{{trip.endDate | date: 'shortTime'}}</span>
+                                <span class="addresse"><i class="marker-icon"></i> {{trip.arrivalAddress}}</span>
+                            </div>
+                        </div>
+                        <div style="margin-left: auto;">
+                            <drivata-rating-circle [view]="[95,72]" [showRange]="false" [showstate]="false"
+                                [scheme]="'#E27402'" [margin]="margin" [results]="DefaultScore" [dataName]="dataName"
+                                [dataValue]="trip.safetyScore">
+                            </drivata-rating-circle>
+                        </div>
+                    </div>
+
+                </div>
+                <div *ngIf="loading == true" class="trip-loader">
+                </div>
+            </ng-scrollbar>
+        </div>
+        <ng-template #tripInformation >  
+            <div [@slideInOut]>
+            <drivata-trip-detail [selectedTrip]="tripDetail"></drivata-trip-detail>
+        </div>
+        </ng-template>
+        <div class="trip-path">
+            <drivata-trajectory-map [tripDetail]="tripDetail" [mapPosition]="position"
+                (pathUpdate)="pathUpdate($event)"></drivata-trajectory-map>
+        </div>
+    </div>
+</div>

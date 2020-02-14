@@ -1,0 +1,26 @@
+<div class="drivata-body" (window:resize)="onResized($event)">
+    <div class="borders">
+
+        <drivata-manager-side-nav [groups]="groups$ | async"
+        class="side-nav">
+        </drivata-manager-side-nav>
+        <div #toggledSideNav id="toggledSideNav" class="toggled-side-nav" *ngIf="!fullscreen" (click)="toggled = !toggled">
+            <i *ngIf="toggled;else Cross" class="fa fa-bars fa-2x" ></i>
+            <ng-template #Cross>
+                <i class="fa fa-times fa-2x" ></i>
+            </ng-template>
+        </div>
+        
+
+        <div class="content" (click)="showUser(false)" (click)="CheckDisplay()">
+
+
+            <div class="main-content">
+                <router-outlet></router-outlet>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

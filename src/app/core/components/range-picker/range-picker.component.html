@@ -1,0 +1,26 @@
+<div class="range-selector">
+    <ng-container *ngIf="highValue != limits[1] &&  minValue != limits[0];else DisplayMin">
+        <span translate>From</span>&nbsp;{{minValue}}{{unit}}
+        <span translate>Up to</span>&nbsp;{{highValue}}{{unit}}
+    </ng-container>
+    <ng-template #DisplayMin>
+        <ng-container translate *ngIf="minValue != limits[0];else DisplayMax">
+            <span translate>From</span>&nbsp;{{minValue}}{{unit}}
+        </ng-container>
+    </ng-template>
+    <ng-template #DisplayMax>
+        <ng-container *ngIf="highValue != limits[1] ;else DisplayNone">
+            <span translate>Up to</span>&nbsp;{{highValue}}{{unit}}
+        </ng-container>
+    </ng-template>
+    <ng-template #DisplayNone>
+        <span translate> {{label}}</span>
+    </ng-template>
+    <br><br>
+    <ng5-slider [(value)]="minValue" [(highValue)]="highValue" [options]="options"></ng5-slider>
+    <div class="filter-actions">
+        <button class="btn btn-outline-secondary" (click)="Reset()" translate>Reset</button>
+        <button class="btn btn-outline-success" (click)="Apply()" translate>Apply</button>
+    </div>
+
+</div>

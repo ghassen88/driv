@@ -1,0 +1,112 @@
+
+.advanced-pie-legend {
+  float: left;
+  position: relative;
+  top: 45%;
+  transform: translate(0, -50%);
+
+  .total-value {
+    font-size: 36px
+  }
+
+  .total-label {
+    font-size: 24px;
+    margin-bottom: 19px;
+  }
+
+  .legend-items-container {
+    width: 100%;
+    display: flex;
+    
+    .items-separator{
+      border-left: solid  0.9px #656666;
+      padding-left: 10px;
+      margin-top: 12px;
+      height: 85px;
+      // @media (max-width: 1700px) and (min-width: 1350px){
+      //   margin-top: 36px;
+      //   height: 100px;
+      // }
+      //border: solid 0.9px #979797;
+      width: 0.9px;
+
+    }
+    .legend-items {
+      
+      //border-left: 1px solid #656666;
+      //padding-left: 16px;
+      //white-space: nowrap;
+      font-stretch: normal;
+      width: 100%;
+      //overflow: auto;
+
+      .legend-item {
+        margin-right: 20px;
+        margin-top: 2%;
+        width: 90%;
+        @media (max-width: 800px) {
+          width: 100%;
+        }
+        display: flex;
+        
+        cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover {
+          color: #000;
+          -webkit-transition: 0.2s;
+          -moz-transition: 0.2s;
+          transition: 0.2s;
+        }
+        .item-info{
+          display: inline-flex;
+          // @media (max-width: 1700px) and (min-width: 1400px){
+          //   display: block;
+          //   line-height: 0.9;
+          // }
+          width: 100%;
+          .item-value {
+            font-size: 13px;
+            //margin-top: 1px;
+            // margin-left: 11px;
+            //position: absolute;
+            //right:27%
+          }
+          .item-label {
+            font-size: 13px;
+            opacity: 0.7;
+            //margin-left: 11px;
+            margin-top: 1px;
+            width: 57%;
+          }
+          .item-percent {
+            font-size: 13px;
+            opacity: 0.7;
+            //margin-left: 11px;
+            width: 36px;
+          }
+        }
+        
+
+        .item-color {
+          height: 15px;
+          float: left;
+          margin-right: 7px;
+          margin-top: 4px;
+          border-radius: 50%;
+        }
+        .item-color::after{
+          content: '';
+          width: 15px;
+          position: relative;
+          left: 10px;
+          top: 10px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

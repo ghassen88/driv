@@ -1,0 +1,58 @@
+<!-- <drivata-svg-defs></drivata-svg-defs> -->
+<ngx-charts-chart 
+[view]="[width, height]" 
+[showLegend]="false"
+[legendOptions]="legendOptions"
+[activeEntries]="activeEntries" 
+[animations]="animations">
+        <svg:g [attr.transform]="transform" class="gauge chart">
+          <svg:g [attr.transform]="rotation"
+            ngx-charts-gauge-arc
+            [backgroundArc]="arc.backgroundArc"
+            [valueArc]="arc.valueArc"
+            [cornerRadius]="cornerRadius"
+            [colors]="colors"
+            [isActive]="isActive(arc.valueArc.data)"
+            [valueFormatting]="valueFormatting"
+            [animations]="true"
+            [tooltipDisabled]="tooltipDisabled"
+            [tooltipTemplate]="tooltipTemplate"
+          ></svg:g>
+          <svg:g [attr.transform]="rotate">
+            <svg:g *ngFor="let tick of ticks.big"
+            class="gauge-tick gauge-tick-large">
+            <svg:path *ngIf="showLines" [attr.d]="tick.line" /> 
+          </svg:g>
+          <svg:g *ngFor="let tick of ticks.big"
+            class="gauge-tick gauge-tick-large">
+            <svg:text
+              *ngIf="showRange"
+              [style.textAnchor]="tick.textAnchor"
+              [attr.transform]="tick.textTransform"
+              alignment-baseline="central">
+              {{tick.text}}
+          </svg:text>
+          </svg:g>
+          <svg:g *ngFor="let tick of ticks.small"
+            class="gauge-tick gauge-tick-small">
+            <svg:path *ngIf="showLines" [attr.d]="tick.line" />
+          </svg:g>
+        </svg:g>
+          <image *ngIf="showstate" x="1.5em" y="-1.5em" width="20px" height="20px" [attr.xlink:href]="logoRef" />
+          <svg:text
+            #textEl
+            *ngIf="showText"
+            [style.textAnchor]="'middle'"
+            [attr.transform]="textTransform"
+            [style.font-size]="20"
+            alignment-baseline="central">
+            <tspan x="0" dy="0.4em">{{ results.value }}</tspan>
+            <svg width="100%" height="100%" viewBox="-100 -100 200 200" version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+            </svg>
+
+          </svg:text>
+        </svg:g>
+
+  </ngx-charts-chart>

@@ -1,0 +1,19 @@
+{
+    "dashboard":"Dashboard",
+    "First name":"First name",
+    "Last name":"Last name",
+    "Nickname":"Nickname",
+    "Eco driving": "Eco driving",
+    "Security":"Security",
+    "Phone usage":"Phone usage",
+    "All": "All",
+    "Active":"Active",
+    "Inactive":"Inactive",
+    "Good":"Good",
+    "Excellent":"Excellent",
+    "Cancel":"Cancel",
+    "from": "from",
+    "to": "to",
+    "no date selected":"no date selected"
+
+}

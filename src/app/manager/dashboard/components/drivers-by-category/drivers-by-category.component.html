@@ -1,0 +1,33 @@
+<div class="chartSummary">
+    <div class="chart-control-holder">
+        <div class="summary-title">Number of drivers by category</div>
+        <div class="controls">
+            <div class="radio-controls">
+                <div *ngFor="let categoryControl of categoryControls; let i = index" class="control" (click)="show(i)">
+                    <span [style.background-color]="categoryControl.color"
+                        [ngClass]="{'empty-color-sphere': !categoryControl.state,'color-sphere':categoryControl.state}"></span>
+                    <p translate>{{categoryControl.name}}</p>
+                </div>
+            </div>
+            <div class="criteria">
+                <div #PeriodFilter="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']" class="d-inline-block"
+                    [autoClose]="'outside'">
+                    <div class="criteria-select" id="categoryPeriods" ngbDropdownToggle translate>
+                        <span>{{selectedPeriod}} <i class="fa fa-chevron-down fa-xs"></i></span></div>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="categoryPeriods">
+                        <button class="dropdown-item" *ngFor="let p of periods | keys" (click)="filter(p.key);PeriodFilter.close()"
+                            translate>{{p.value}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-holder" (resized)="onResized($event)">
+        <drivata-stacked-bar-chart *ngIf="data"
+         [data]="data"
+         [view]="view"
+         [controls]="categoryControls">
+
+        </drivata-stacked-bar-chart>
+    </div>
+</div>

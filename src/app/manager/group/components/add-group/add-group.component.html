@@ -1,0 +1,14 @@
+<div class="modal-body">
+    <div class="drivata-form">
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+            <p translate>Add Group</p>
+            <input type="text" placeholder="Group name" formControlName="groupName">
+            <div class="actions">
+                <span aria-hidden="true" (click)="activeModal.dismiss('Cross click')" translate>Cancel</span>
+                <button type="submit" class="btn btn-primary">
+                    <span aria-hidden="true" translate>Add</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

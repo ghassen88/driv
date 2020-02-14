@@ -1,0 +1,20 @@
+.date-picker-menu {
+    min-width: 25rem;
+    span:first-child {
+      margin-left: 5%;
+    }
+    .period-picker {
+      padding-left: 2%;
+      display: inline-block;
+      p {
+        padding-left: 5%;
+        margin-bottom: 0.5rem;
+        border-radius: 10px;
+        &:hover {
+          cursor: pointer;
+          background-color: #e4e6e6;
+        }
+      }
+    }
+
+  }

@@ -1,0 +1,9 @@
+<div class="loginForm">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="height: 100%;">
+        <img src="assets/img/svg/icons/drivata_blue.svg" width="180" height="70"/>
+            <input type="text" formControlName="userName" placeholder="Email" >
+            <input type="password" formControlName="password" placeholder="Password" >
+        <button type="submit" [disabled]="!loginForm.valid" translate>Login</button>
+        <a translate> Forgot your password ?</a>
+    </form>
+</div>

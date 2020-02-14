@@ -1,0 +1,73 @@
+<div class="stat-summary">
+
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
+            <div class="stat-container focused" *ngIf="driverResult != null; else Stat1PlaceHolder">
+                <div class="inline1">
+                    <div>
+                        <p> {{driverResult.name}} </p>
+                    </div>
+                    <i class="top-left driver-icon"></i>
+                </div>
+                <div class="line"></div>
+                <div>
+                    <p class="inline" translate>LAST TRIP : {{driverResult.lastTrip | date:'dd/MM/yy'}}</p>
+                    <i class="messaging-alternate-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
+            <div class="stat-container" *ngIf="driverResult != null; else Stat1PlaceHolder">
+                <div class="inline1">
+                    <div>
+                        <p translate> RANKING </p>
+                        <p class="number">{{driverResult.ranking}} / {{driverResult.driverCount}}</p>
+                    </div>
+                    <i class="top-left ranking-icon"></i><br>
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
+            <div class="stat-container" *ngIf="driverResult != null; else Stat1PlaceHolder">
+                <div class="inline1">
+                    <div>
+                        <p translate> DISTANCE </p>
+                        <p class="number">{{driverResult.distance | distance}}</p>
+
+                    </div>
+                    <i class="top-left road-icon"></i>
+                </div>
+                <div class="line"></div>
+                <div>
+                    <span class="inline blurred">{{driverResult.lastWeekDistance | distance}}<span translate> this week
+                        </span></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
+
+            <div class="stat-container" *ngIf="driverResult != null; else Stat1PlaceHolder">
+                <div class="inline1">
+                    <div>
+                        <p translate> TRIPS </p>
+                        <p class="number">{{driverResult.tripCount}}</p>
+                    </div>
+
+                    <i class="top-left trip-alternate-icon"></i>
+                </div>
+                <div class="line"></div>
+                <div>
+                    <span class="inline blurred">{{driverResult.lastWeekTripCount}} <span translate> this week </span></span>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #Stat1PlaceHolder>
+            <div class="stat-container">
+                <drivata-stat1-place-holder></drivata-stat1-place-holder>
+            </div>
+        </ng-template>
+    </div>
+</div>

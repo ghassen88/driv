@@ -1,0 +1,102 @@
+.loginForm {
+  margin: auto;
+  height: 25.1rem;
+  border-radius: 11px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 370px;
+  // background-image: linear-gradient(-45deg, rgba(5, 44, 144, 0.5), rgba(222, 214, 214, 0.5));
+  background-color: white;
+  padding-top: 1.2%;
+  text-align: center;
+
+  span {
+    color: rgb(77, 75, 75);
+    font-size: x-large;
+    font-family: "Roboto Bold";
+  }
+  input,
+  button,
+  a {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2.2rem;
+    width: 70%;
+    height: 44px;
+    
+  }
+  a{
+    &:hover{
+        color: #0e47f0;
+    }
+  }
+  input {
+    font-size: 14px;
+    border-bottom: 1.5px solid #0e47f0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 4px;
+    outline: none;
+    :focus {
+      outline: none;
+    }
+  }
+  ::placeholder{
+      font-family: 'Roboto Regular';
+      font-size: 17px;
+
+  }
+  input::-webkit-input-placeholder {
+    color: #999;
+}
+input:focus::-webkit-input-placeholder {
+    color: #0e47f0;
+}
+
+/* Firefox < 19 */
+input:-moz-placeholder {
+    color: #999;
+}
+input:focus:-moz-placeholder {
+    color: #0e47f0;
+}
+
+/* Firefox > 19 */
+input::-moz-placeholder {
+    color: #999;
+}
+input:focus::-moz-placeholder {
+    color: #0e47f0;
+}
+
+/* Internet Explorer 10 */
+input:-ms-input-placeholder {
+    color: #999;
+}
+input:focus:-ms-input-placeholder {
+    color: #0e47f0;
+}
+  button {
+    border-radius: 100px/81px;;
+    background-color:#0e47f0;
+    color: white;
+    box-shadow: 0 2px 4px 0 rgba(14, 71, 240, 0.49);
+    font-family: 'Roboto Regular';
+      font-size: 17px;
+  }
+  button:disabled {
+    background-color:rgba(14, 71, 240, 0.49)
+  }
+  a {
+    margin-top: 1%;
+    color: #757070;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

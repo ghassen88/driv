@@ -1,0 +1,126 @@
+.row{
+  width: inherit;
+}
+.kit {
+    width: 100%;
+  .map-info {
+    margin-top: 1.5%;
+    //width: 360px;
+    //height: 260px;
+    margin-left: 4%;
+    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14),
+      0 5px 24px 4px rgba(0, 0, 0, 0.12);
+    background-color: #ffff;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+  }
+
+  .traject-info {
+    //height: 450px;
+    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14),
+      0 5px 24px 4px rgba(0, 0, 0, 0.12);
+    background-color: #ffff;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    left: 0;
+    margin-left: 4%;
+    margin-top: 1.5%;
+
+    //display: list-item;
+  }
+  //display: inline-flex;
+}
+.stat {
+  padding-top: 5px;
+  padding-left: 5px;
+  margin-top: 1.5%;
+  margin-left: 4%;
+  background-color: #ffff;
+  border-radius: 10px;
+  width: 360px;
+  height: 260px;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
+}
+.stat-grid {
+  //padding-top: 5px;
+  //padding-left: 5px;
+  margin-top: 1.5%;
+  margin-left: 4%;
+  background-color: #ffff;
+  border-radius: 10px;
+  width: 360px;
+  height: 260px;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
+}
+.classement {
+  font-family: Arial, Helvetica, sans-serif;
+
+  padding-top: 5px;
+  padding-left: 5px;
+  margin-top: 4%;
+  margin-left: 1.5%;
+  background-color: #ffff;
+  border-radius: 10px;
+  width: 820px;
+  height: 400px;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
+  .card-header1 {
+    margin-top: 1%;
+    margin-left: 2%;
+    //text-align: center;
+    //background-color: rgba(204, 200, 200, 0.651);
+    //border-width: 120px;
+    .line {
+      margin-top: 1.5%;
+      margin-left: 1%;
+      //margin: auto;
+
+      top: 10%;
+      width: 95%;
+      z-index: 1;
+      border-bottom: 1px solid #080808;
+    }
+    //padding: 15px 15px 0;
+    //border-bottom: 1px solid #ffff;
+  }
+  .my-custom-scrollbar {
+    position: relative;
+    height: 330px;
+    overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+    display: block;
+  }
+}
+.drivers-ranking {
+  margin-top: 1.5%;
+  margin-left: 4%;
+  background-color: #ffff;
+  border-radius: 10px;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
+}
+.card-header {
+  margin-bottom: 0;
+  //padding: 1.25rem 1.5rem;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+
+ngx-datatable {
+    max-height: 70vh;
+    //overflow-y: scroll;
+    div{
+      cursor: pointer;
+    }
+  }
+  .table-ranking{
+      //width: 100%;
+
+      border-radius: 10px;
+      box-shadow: none ;
+      margin-bottom: 4px;
+      width: 100%;
+     
+
+  }

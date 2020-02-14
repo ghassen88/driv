@@ -1,0 +1,11 @@
+<div class="map" *ngIf="path.length != 0"
+ leaflet [leafletCenter]="center"
+  [leafletZoom]="zoom"
+  [leafletFitBounds]="BoundsOptions"
+
+    [leafletLayers]="layers">
+    <div *ngFor="let p of path"
+    [leafletLayer]="p" 
+    (leafletLayerAdd)="AddPath(p)"
+    (mouseover)="selectPath($event)"></div>
+</div>

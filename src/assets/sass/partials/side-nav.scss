@@ -1,0 +1,322 @@
+%icon-with-text {
+  text-align: center;
+  font-family: "Roboto Regular";
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  font-size: 14px;
+  line-height: 2;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.title {
+  height: 57px;
+  color: #fff;
+  width: 112px;
+  background-color: #465eee;
+  padding-left: 10px;
+  .logo {
+    width: 102px;
+    height: 100%;
+    float: left;
+    img {
+      margin: auto;
+      margin-top: 12px;
+    }
+  }
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  .TeamHolder {
+    display: inline-block;
+    padding-left: 10px;
+    width: 290px;
+    //float: right;
+    line-height: 1.3;
+    height: 100%;
+    padding-top: 8px;
+    visibility: hidden;
+    transform: translate3d(-100%, 0, 0);
+    border-left: 1px solid;
+
+    // height: 57px;
+    // background-color: #465eee;
+
+    // font-family: "Roboto Bold";
+    // font-size: 20px;
+    // font-weight: 500;
+    // font-stretch: normal;
+    // font-style: normal;
+    // line-height: normal;
+    // letter-spacing: normal;
+    // color: var(--dark-slate-blue);
+    // //margin-left: 32px;
+    // visibility: hidden;
+    // display: inline-block;
+    span {
+      display: block;
+    }
+    .teamName {
+      opacity: 0.8;
+      font-size: 18px;
+    }
+    &.showedTeamName {
+      visibility: visible;
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+  &.showedSubSideNav {
+    visibility: visible;
+    width: 402px;
+  }
+}
+.side-nav {
+  //  @media (max-width: 820px) {
+  //   transform: translate3d(-80%, 0, 0);
+  //
+  //  }
+  //   @media (min-width: 820px) {
+  // width: 23%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+
+  //z-index: 100;
+  //position: absolute;
+  // top: 0;
+  // left: 0;
+  //   }
+  //display: none;
+
+  .side-nav-menu {
+    //display: inline-block;
+    &.SubSideNav {
+      display: inline-block;
+    }
+    background-color: #1d2b6f !important;
+    color: white;
+
+    width: 112px;
+
+    .line {
+      //margin: 7px;
+      width: 100%;
+      z-index: 1;
+      border-bottom: 1.2px solid #c6c7c7;
+    }
+
+    .side-bar-item {
+      @extend %icon-with-text;
+      position: inherit;
+      padding-bottom: 5px;
+      height: 89px;
+
+      padding-top: 18%;
+      &:hover {
+        cursor: pointer !important;
+        border-left: 4px solid #fff;
+        background-color: #283576;
+      }
+
+      span {
+        .fa {
+          font-size: 0.6rem !important;
+        }
+      }
+      &.active {
+        cursor: pointer !important;
+        border-left: 4px solid #fff;
+        background-color: #283576;
+      }
+      a {
+        text-decoration: none !important;
+      }
+
+      ul {
+        list-style-type: none;
+        text-decoration: none !important;
+        display: none;
+        padding-left: 12%;
+        margin-bottom: 0rem;
+        &.showSub {
+          display: block;
+          -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
+        }
+        li {
+          padding-left: 10px;
+          width: 80%;
+          // &:hover{
+          //     border-radius:10px;
+          //     background-color: #3c3c3c;
+          // }
+        }
+      }
+      .sub-menu {
+        display: block;
+        color: #172957;
+        font-weight: 500;
+        font-size: 0.875rem;
+        margin: 0.5rem 0rem;
+        padding: 0;
+      }
+    }
+
+    position: sticky;
+    height: 900px;
+    border-bottom-right-radius: 10px;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    .hide-menu {
+      font-size: 14px;
+    }
+    .test {
+      position: relative;
+      top: 200px;
+      margin-top: 8px;
+    }
+  }
+}
+.toggled-side-nav {
+  height: 57px;
+  background-color: #172957;
+  width: 50px;
+  color: white;
+  z-index: 101;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  cursor: pointer;
+  i {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+}
+.sub-side-nav-menu {
+  float: right;
+  height: 900px;
+  background-color: #f0f5fb;
+  visibility: hidden;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  width: 0px;
+
+  padding-top: 19px;
+  &.showed-sub-nav {
+    width: 290px;
+
+    visibility: visible;
+    -webkit-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+  }
+  .GroupTypes {
+    font-size: 16px;
+    font-family: "Roboto Medium";
+    font-weight: 500;
+    color: #31353f;
+    display: flex;
+    margin-top: 3px;
+    width: 100%;
+    i:last-child {
+      float: right;
+      margin-right: 3%;
+    }
+  }
+  .defaultGroupsNav {
+    margin-left: 5%;
+  }
+  .defaultGroupsNav,
+  .customGroupsnav {
+    div {
+      a {
+        display: flex;
+        font-size: 16px;
+        font-family: "Roboto Regular";
+        font-weight: normal;
+        margin-top: 15px;
+        text-decoration: none;
+        color: #31353f;
+        span {
+          margin-top: 4px;
+          margin-left: 10px;
+        }
+        &:hover {
+          color: #364dce;
+          cursor: pointer;
+        }
+        &.active-link {
+          color: #364dce;
+        }
+      }
+    }
+  }
+  .customGroupsnav {
+    margin-top: 10%;
+
+    .customGroup {
+      a {
+        margin-left: 16%;
+        display: inline-block;
+      }
+      .d-inline-block {
+        float: right;
+        margin-top: 16px;
+        margin-right: 3%;
+        .dropdown-menu {
+          min-width: 0px;
+          width: 130px;
+          padding: 2px;
+          transform: translate(-115px, 28px) !important;
+          .dropdown-item {
+            padding: 3px;
+            font-family: "Roboto Regular";
+            font-size: 12px !important;
+            color: #61687c !important;
+            height: 40px;
+          }
+        }
+      }
+    }
+    .emptyCustomGroups {
+      width: 60%;
+      margin-top: 11%;
+      margin-left: 20%;
+      @extend %icon-with-text;
+      .create-group-button {
+        margin-top: 10px;
+        text-align: start;
+        height: 40px;
+        border: 1px solid #364dce;
+        border-radius: 20px;
+        display: flex;
+        color: #364dce;
+        font-size: 16px;
+        span {
+          margin-top: 2px;
+          margin-left: 2%;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

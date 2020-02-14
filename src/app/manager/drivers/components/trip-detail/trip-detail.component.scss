@@ -1,0 +1,56 @@
+.trip-information {
+  width: 372px;
+  height: 747px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+  .trip-contexts {
+    color: #172957;
+    p:first-child {
+      font-size: 16px;
+    }
+    margin-left: 9%;
+    width: 80%;
+    padding-top: 10%;
+    .trip-condition {
+      font-size: 14.1px;
+      font-family: "Roboto Medium";
+      opacity: 0.7;
+    }
+  }
+  .line {
+    width: 82%;
+    z-index: 1;
+    border-bottom: 1px solid #656666;
+    margin: auto;
+    opacity: 0.7;
+  }
+  .trip-scores {
+    border: solid 1.5px #d5d0d0;
+    width: 353px;
+    height: 381px;
+    margin: auto;
+    border-radius: 5.7px;
+    display: flex;
+    .dashedline{
+        height: 1px;
+        width: 80%;
+        margin: auto;
+        border: dashed 0.5px #d5d0d0;
+    }
+    .trip-score{
+        text-align: center;
+        i{
+            &:after{
+                margin: auto;
+            }
+        }
+        width: 176px;
+        height: 168px;
+        padding-top: 13%;
+        margin-top: 2.5%;
+    }
+    .trip-score + .trip-score{
+        border-left: dashed 0.5px #d5d0d0;
+    }
+  }
+}
