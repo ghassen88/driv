@@ -11,6 +11,7 @@ import { CoreService } from '../../services/core.service';
 import { DriverName } from 'src/app/manager/drivers/models/driverTrip';
 import { environment } from 'src/environments/environment';
 
+
 @Component({
   selector: 'drivata-manager-side-nav',
   templateUrl: './manager-side-nav.component.html',
@@ -78,5 +79,9 @@ export class ManagerSideNavComponent implements OnInit, OnChanges {
   }
   Show(tab:string){
     this.selectedTab = tab;
+  }
+  navigateChallenge(){
+    this.router.navigate(['challenges']);
+
   }
 }

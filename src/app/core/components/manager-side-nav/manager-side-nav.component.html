@@ -37,7 +37,7 @@
     <div class="side-bar-item" (click)="Show('Challenges')" [ngClass]="{'active': selectedTab == 'Challenges'}">
         <a aria-current="false" class="sidebar-link">
             <i class="img challenge-icon"></i>
-            <span class="hide-menu" translate>Challenge </span> </a>
+            <span class="hide-menu" translate (click)="navigateChallenge()">Challenge </span> </a>
 
         <!-- <ul [ngClass]="{'showSub': showAdministration}">
             <li><a class="sub-menu" translate routerLinkActive="active">Managers</a></li>

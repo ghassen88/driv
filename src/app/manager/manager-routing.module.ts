@@ -6,7 +6,7 @@ import { ManagerInterfaceComponent } from './manager-interface/manager-interface
 
 
 const routes: Routes = [
-  
+
   {
     path: '',
     component: ManagerInterfaceComponent,
@@ -25,54 +25,36 @@ const routes: Routes = [
       {
         path: 'groups',
         loadChildren: './group/group.module#GroupModule',
-        
+
       },
       {
         path: 'driver',
         loadChildren: './drivers/drivers.module#DriversModule',
       },
-      // {
-      //   path: 'trafic',
-      //   loadChildren: './trafic/trafic.module#TraficModule',
-      // },
-      // {
-      //   path: 'meteo',
-      //   loadChildren: './meteo/meteo.module#MeteoModule',
-      // },
-      // {
-      //   path: 'iterinaires',
-      //   loadChildren: './iterinaires/iterinaires.module#IterinairesModule',
-      // },
-      // {
-      //   path: 'horaires',
-      //   loadChildren: './horaires/horaires.module#HorairesModule',
-      // },
-      // {
-      //   path: 'parametres',
-      //   loadChildren: './parametres/parametres.module#ParametresModule',
-      // },
-      
-      
-      // {
-      //   path: '',
-      //   loadChildren: './dashboard/dashboard.module#DashboardModule',
-      // }
-       {
-         path: 'kit',
-         component: KitContainerComponent,
-       },
+      {
+        path: 'kit',
+        component: KitContainerComponent,
+      },
+      {
+        path: 'challenges',
+
+        loadChildren: './challenge/challenge.module#ChallengeModule',
+        // data:{
+        //   shouldReuse: false
+        //  }
+      },
       // {
       //   path:'',
       //   loadChildren: './dashboard/dashboard.module#DashboardModule',
       // }
     ],
 
-    
-    
+
+
   },
-  
-  
-  
+
+
+
 ];
 
 @NgModule({
